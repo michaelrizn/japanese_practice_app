@@ -1,0 +1,109 @@
+/* ===== Сброс базовых отступов и чёрный фон ===== */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Чёрный фон */
+    color: #fff; /* Белый текст */
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+/* ===== Упрощённая адаптивная верстка ===== */
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Шапка ===== */
+header {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+/* ===== Основная часть ===== */
+main {
+    flex: 1;
+    padding: 1rem;
+}
+
+/*
+   ===== Список упражнений на главной (index.html) =====
+   .exercise-list и её элементы
+*/
+.exercise-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.exercise-list li {
+    margin-bottom: 1rem;
+}
+
+/*
+   Ссылка на упражнения (пример: Phrase Practice)
+   На hover — затемняем фон
+*/
+.exercise-list a {
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.exercise-list a:hover {
+    background-color: #222;
+}
+
+/*
+   ===== Кнопка «Следующая фраза» в том же стиле,
+   что и ссылки на главной
+*/
+.exercise-link {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.exercise-link:hover {
+    background-color: #222;
+}
+
+/*
+   ===== Строки с фразой и тумблером в Phrase Practice =====
+   Используем .line для контейнера строки.
+*/
+.line {
+    display: flex; /* Горизонтально: текст слева, тумблер справа */
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+/*
+   .text-content — сам текст (перевод, транскрипция).
+   По умолчанию никаких особых стилей не нужно,
+   достаточно, что он белый.
+*/
+.line .text-content {
+    /* Можно добавить при желании, например:
+  font-size: 1rem;
+  ... */
+}
+
+/*
+   Тумблер (checkbox).
+   margin-left: auto выталкивает его к правому краю
+*/
+.line input.toggler {
+    margin-left: auto;
+}

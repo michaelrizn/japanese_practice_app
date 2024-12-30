@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>Phrase Practice</title>
+        <link rel="stylesheet" href="../../style.css" />
+    </head>
+    <body>
+        <!-- Кнопка "Назад" -->
+        <header>
+            <a
+                href="../../index.html"
+                class="back-button"
+                style="color: #fff; text-decoration: none"
+            >
+                ← Назад
+            </a>
+        </header>
+
+        <main>
+            <h2>Phrase Practice</h2>
+
+            <!-- Вывод случайной фразы -->
+            <div id="phrase-container">
+                <div class="line line-1">
+                    <span id="jp-phrase"></span>
+                </div>
+                <div class="line line-2">
+                    <span class="text-content" id="transcription-ru"></span>
+                    <input
+                        type="checkbox"
+                        id="toggle-transcription-ru"
+                        class="toggler"
+                    />
+                </div>
+                <div class="line line-3">
+                    <span class="text-content" id="translation-ru"></span>
+                    <input
+                        type="checkbox"
+                        id="toggle-translation-ru"
+                        class="toggler"
+                    />
+                </div>
+                <div class="line line-4">
+                    <span class="text-content" id="transcription-en"></span>
+                    <input
+                        type="checkbox"
+                        id="toggle-transcription-en"
+                        class="toggler"
+                    />
+                </div>
+                <div class="line line-5">
+                    <span class="text-content" id="translation-en"></span>
+                    <input
+                        type="checkbox"
+                        id="toggle-translation-en"
+                        class="toggler"
+                    />
+                </div>
+            </div>
+
+            <!-- "Следующая фраза" оформим как div, но стилями как у ссылки из index.html -->
+            <div id="next-phrase-button" class="exercise-link">
+                Следующая фраза
+            </div>
+        </main>
+
+        <script src="hiragana_phrases.js"></script>
+        <script src="katakana_phrases.js"></script>
+        <script src="phrase_practice.js"></script>
+    </body>
+</html>
