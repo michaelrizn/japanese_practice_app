@@ -5,30 +5,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Japanese Mini App</title>
         <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer></script>
     </head>
     <body>
-        <header>
-            <h1>Japanese Practice</h1>
+        <!-- Верхнее меню -->
+        <header class="top-menu">
+            <a href="index.html" class="menu-link">Главная</a>
+            <button id="font-decrease" class="menu-btn">A-</button>
+            <button id="font-increase" class="menu-btn">A+</button>
         </header>
 
         <main>
+            <h1>Японский: практикуем язык</h1>
             <ul class="exercise-list">
-                <!-- Ссылка на первое упражнение -->
                 <li>
-                    <a href="exercises/phrase_practice/phrase_practice.html"
-                        >Phrase Practice</a
-                    >
+                    <a href="exercises/phrase_practice/phrase_practice.html">
+                        Phrase Practice
+                    </a>
                 </li>
-
-                <!-- Прочие упражнения можно добавлять по аналогии -->
-                <!--
-      <li>
-        <a href="exercises/reading_practice/reading_practice.html">Reading Practice</a>
-      </li>
-      <li>
-        <a href="exercises/vocab_quiz/vocab_quiz.html">Vocabulary Quiz</a>
-      </li>
-      -->
+                <!-- Можно добавить и другие упражнения -->
             </ul>
         </main>
     </body>

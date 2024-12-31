@@ -7,6 +7,18 @@ const katakanaPhrases = [
     translationRu: "Я люблю мороженое",
     transcriptionEn: "a~i~su~ku~ri~mu ga su~ki de~su",
     translationEn: "I like ice cream",
+    wordsRu: [
+      "アイスクリーム (aisukuriimu) - айсукуриму (мороженое)",
+      "が (ga) - (частица субъекта)",
+      "すき (suki) - нравится",
+      "です (desu) - (глагол-связка)",
+    ],
+    wordsEn: [
+      "アイスクリーム (aisukuriimu) - ice cream",
+      "が (ga) - subject particle",
+      "すき (suki) - like",
+      "です (desu) - is",
+    ],
   },
   {
     phrase: "コーヒーをのみます",
@@ -14,6 +26,16 @@ const katakanaPhrases = [
     translationRu: "Я пью кофе",
     transcriptionEn: "ko~o~hi~o no~mi~ma~su",
     translationEn: "I drink coffee",
+    wordsRu: [
+      "コーヒー (koohii) - кофе",
+      "を (o) - (частица вин. падежа)",
+      "のみます (nomimasu) - пью (вежл.)",
+    ],
+    wordsEn: [
+      "コーヒー (koohii) - coffee",
+      "を (o) - object marker",
+      "のみます (nomimasu) - drink (polite)",
+    ],
   },
   {
     phrase: "ピザはいかがですか",
@@ -21,6 +43,20 @@ const katakanaPhrases = [
     translationRu: "Как насчёт пиццы?",
     transcriptionEn: "pi~za wa i~ka~ga de~su~ka",
     translationEn: "How about pizza?",
+    wordsRu: [
+      "ピザ (piza) - пицца",
+      "は (wa) - (частица темы)",
+      "いかが (ikaga) - как насчёт",
+      "です (desu) - (глагол-связка)",
+      "か (ka) - (вопрос)",
+    ],
+    wordsEn: [
+      "ピザ (piza) - pizza",
+      "は (wa) - topic particle",
+      "いかが (ikaga) - how about",
+      "です (desu) - is",
+      "か (ka) - ?",
+    ],
   },
   {
     phrase: "テレビをみます",
@@ -28,6 +64,16 @@ const katakanaPhrases = [
     translationRu: "Я смотрю телевизор",
     transcriptionEn: "te~re~bi o mi~ma~su",
     translationEn: "I watch TV",
+    wordsRu: [
+      "テレビ (terebi) - телевизор",
+      "を (o) - (частица объект)",
+      "みます (mimasu) - смотреть (вежл.)",
+    ],
+    wordsEn: [
+      "テレビ (terebi) - TV",
+      "を (o) - object marker",
+      "みます (mimasu) - watch (polite)",
+    ],
   },
   {
     phrase: "ニュースはおもしろいです",
@@ -35,6 +81,18 @@ const katakanaPhrases = [
     translationRu: "Новости интересные",
     transcriptionEn: "nyu~su wa o~mo~shi~ro~i de~su",
     translationEn: "The news is interesting",
+    wordsRu: [
+      "ニュース (nyuusu) - новости",
+      "は (wa) - (частица темы)",
+      "おもしろい (omoshiroi) - интересные",
+      "です (desu) - (глагол-связка)",
+    ],
+    wordsEn: [
+      "ニュース (nyuusu) - news",
+      "は (wa) - topic particle",
+      "おもしろい (omoshiroi) - interesting",
+      "です (desu) - is",
+    ],
   },
   {
     phrase: "カメラをかいました",
@@ -42,6 +100,16 @@ const katakanaPhrases = [
     translationRu: "Я купил(а) камеру",
     transcriptionEn: "ka~me~ra o ka~i~ma~shi~ta",
     translationEn: "I bought a camera",
+    wordsRu: [
+      "カメラ (kamera) - камера",
+      "を (o) - (частица объект)",
+      "かいました (kaimashita) - купил(а) (прош. вр., вежл.)",
+    ],
+    wordsEn: [
+      "カメラ (kamera) - camera",
+      "を (o) - object marker",
+      "かいました (kaimashita) - bought (polite, past)",
+    ],
   },
   {
     phrase: "ゲームをしますか",
@@ -49,6 +117,18 @@ const katakanaPhrases = [
     translationRu: "Будем играть в игру?",
     transcriptionEn: "ge~mu o shi~ma~su~ka",
     translationEn: "Shall we play a game?",
+    wordsRu: [
+      "ゲーム (geemu) - игра",
+      "を (o) - (частица объект)",
+      "します (shimasu) - делаем/играем (вежл.)",
+      "か (ka) - (вопрос)",
+    ],
+    wordsEn: [
+      "ゲーム (geemu) - game",
+      "を (o) - object marker",
+      "します (shimasu) - do/play (polite)",
+      "か (ka) - question",
+    ],
   },
   {
     phrase: "タクシーをよびます",
@@ -56,13 +136,33 @@ const katakanaPhrases = [
     translationRu: "Я вызову такси",
     transcriptionEn: "ta~ku~shi~ o yo~bi~ma~su",
     translationEn: "I'll call a taxi",
+    wordsRu: [
+      "タクシー (takushii) - такси",
+      "を (o) - (частица объект)",
+      "よびます (yobimasu) - вызову (вежл.)",
+    ],
+    wordsEn: [
+      "タクシー (takushii) - taxi",
+      "を (o) - object marker",
+      "よびます (yobimasu) - call (polite)",
+    ],
   },
   {
     phrase: "レストランへいきましょう",
-    transcriptionRu: "рэ~су~то~ран э и~ки~ма~сё",
+    transcriptionRu: "рэ~су~то~ран э и~ки~ма~шо",
     translationRu: "Пойдём в ресторан",
     transcriptionEn: "re~su~to~ran e i~ki~ma~sho",
     translationEn: "Let's go to a restaurant",
+    wordsRu: [
+      "レストラン (resutoran) - ресторан",
+      "へ (e) - (частица направления)",
+      "いきましょう (ikimashou) - пойдём (приглаш.)",
+    ],
+    wordsEn: [
+      "レストラン (resutoran) - restaurant",
+      "へ (e) - to(ward)",
+      "いきましょう (ikimashou) - let's go",
+    ],
   },
   {
     phrase: "パンはありますか",
@@ -70,6 +170,18 @@ const katakanaPhrases = [
     translationRu: "У вас есть хлеб?",
     transcriptionEn: "pan wa a~ri~ma~su~ka",
     translationEn: "Do you have bread?",
+    wordsRu: [
+      "パン (pan) - хлеб",
+      "は (wa) - (частица темы)",
+      "あります (arimasu) - есть/имеется (неодуш.)",
+      "か (ka) - (вопрос)",
+    ],
+    wordsEn: [
+      "パン (pan) - bread",
+      "は (wa) - topic particle",
+      "あります (arimasu) - have/exist",
+      "か (ka) - ?",
+    ],
   },
   {
     phrase: "ハンバーガーをつくります",
@@ -77,6 +189,16 @@ const katakanaPhrases = [
     translationRu: "Я сделаю гамбургер",
     transcriptionEn: "ha~n~ba~ga~ o tsu~ku~ri~ma~su",
     translationEn: "I'm going to make a hamburger",
+    wordsRu: [
+      "ハンバーガー (hanbaagaa) - гамбургер",
+      "を (o) - (частица объект)",
+      "つくります (tsukurimasu) - сделаю (вежл.)",
+    ],
+    wordsEn: [
+      "ハンバーガー (hanbaagaa) - hamburger",
+      "を (o) - object marker",
+      "つくります (tsukurimasu) - make (polite)",
+    ],
   },
   {
     phrase: "メニューをください",
@@ -84,6 +206,16 @@ const katakanaPhrases = [
     translationRu: "Дайте, пожалуйста, меню",
     transcriptionEn: "me~nyu o ku~da~sa~i",
     translationEn: "Could I have the menu, please?",
+    wordsRu: [
+      "メニュー (menyuu) - меню",
+      "を (o) - (частица объект)",
+      "ください (kudasai) - дайте (вежл.)",
+    ],
+    wordsEn: [
+      "メニュー (menyuu) - menu",
+      "を (o) - object marker",
+      "ください (kudasai) - please give",
+    ],
   },
   {
     phrase: "ノートパソコンがほしいです",
@@ -91,6 +223,18 @@ const katakanaPhrases = [
     translationRu: "Я хочу ноутбук",
     transcriptionEn: "no~o~to pa~so~kon ga ho~shi~i de~su",
     translationEn: "I want a laptop",
+    wordsRu: [
+      "ノートパソコン (nooto pasokon) - ноутбук",
+      "が (ga) - (частица субъекта)",
+      "ほしい (hoshii) - хочу",
+      "です (desu) - (глагол-связка)",
+    ],
+    wordsEn: [
+      "ノートパソコン (nooto pasokon) - laptop",
+      "が (ga) - subject particle",
+      "ほしい (hoshii) - want",
+      "です (desu) - is",
+    ],
   },
   {
     phrase: "コンビニはどこですか",
@@ -98,6 +242,20 @@ const katakanaPhrases = [
     translationRu: "Где находится магазин 'комбини'?",
     transcriptionEn: "ko~n~bi~ni wa do~ko de~su~ka",
     translationEn: "Where is the convenience store?",
+    wordsRu: [
+      "コンビニ (konbini) - комбини (мини-маркет)",
+      "は (wa) - (частица темы)",
+      "どこ (doko) - где",
+      "です (desu) - (глагол-связка)",
+      "か (ka) - (вопрос)",
+    ],
+    wordsEn: [
+      "コンビニ (konbini) - convenience store",
+      "は (wa) - topic particle",
+      "どこ (doko) - where",
+      "です (desu) - is",
+      "か (ka) - ?",
+    ],
   },
   {
     phrase: "カラオケにいきましょう",
@@ -105,5 +263,15 @@ const katakanaPhrases = [
     translationRu: "Пойдём в караоке",
     transcriptionEn: "ka~ra~o~ke ni i~ki~ma~sho",
     translationEn: "Let's go to karaoke",
+    wordsRu: [
+      "カラオケ (karaoke) - караоке",
+      "に (ni) - (направление)",
+      "いきましょう (ikimashou) - пойдём (приглаш.)",
+    ],
+    wordsEn: [
+      "カラオケ (karaoke) - karaoke",
+      "に (ni) - to(ward)",
+      "いきましょう (ikimashou) - let's go",
+    ],
   },
 ];

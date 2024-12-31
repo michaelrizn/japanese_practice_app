@@ -1,4 +1,4 @@
-// exercises/phrase_practice/phrase_practice.js
+// phrase_practice.js
 
 window.addEventListener("DOMContentLoaded", () => {
   initToggles();
@@ -8,60 +8,61 @@ window.addEventListener("DOMContentLoaded", () => {
   nextButton.addEventListener("click", showRandomPhrase);
 });
 
-/**
- * Инициализация тумблеров при загрузке страницы
- */
 function initToggles() {
+  const toggleJpPhrase = document.getElementById("toggle-jp-phrase");
   const toggleTranscriptionRu = document.getElementById(
     "toggle-transcription-ru",
   );
   const toggleTranslationRu = document.getElementById("toggle-translation-ru");
+  const toggleWordsRu = document.getElementById("toggle-words-ru");
   const toggleTranscriptionEn = document.getElementById(
     "toggle-transcription-en",
   );
   const toggleTranslationEn = document.getElementById("toggle-translation-en");
+  const toggleWordsEn = document.getElementById("toggle-words-en");
 
-  // Восстанавливаем состояние из localStorage
-  toggleTranscriptionRu.checked = getStoredToggle("transcriptionRu");
-  toggleTranslationRu.checked = getStoredToggle("translationRu");
-  toggleTranscriptionEn.checked = getStoredToggle("transcriptionEn");
-  toggleTranslationEn.checked = getStoredToggle("translationEn");
+  // По умолчанию все выключены => всё видно
+  toggleJpPhrase.checked = false;
+  toggleTranscriptionRu.checked = false;
+  toggleTranslationRu.checked = false;
+  toggleWordsRu.checked = false;
+  toggleTranscriptionEn.checked = false;
+  toggleTranslationEn.checked = false;
+  toggleWordsEn.checked = false;
 
-  // Навешиваем обработчики
+  toggleJpPhrase.addEventListener("change", () => {
+    applyToggleVisibility(".line-1", toggleJpPhrase.checked);
+  });
   toggleTranscriptionRu.addEventListener("change", () => {
-    storeToggle("transcriptionRu", toggleTranscriptionRu.checked);
     applyToggleVisibility(".line-2", toggleTranscriptionRu.checked);
   });
-
   toggleTranslationRu.addEventListener("change", () => {
-    storeToggle("translationRu", toggleTranslationRu.checked);
     applyToggleVisibility(".line-3", toggleTranslationRu.checked);
   });
-
+  toggleWordsRu.addEventListener("change", () => {
+    applyToggleVisibility(".line-words-ru", toggleWordsRu.checked);
+  });
   toggleTranscriptionEn.addEventListener("change", () => {
-    storeToggle("transcriptionEn", toggleTranscriptionEn.checked);
     applyToggleVisibility(".line-4", toggleTranscriptionEn.checked);
   });
-
   toggleTranslationEn.addEventListener("change", () => {
-    storeToggle("translationEn", toggleTranslationEn.checked);
     applyToggleVisibility(".line-5", toggleTranslationEn.checked);
+  });
+  toggleWordsEn.addEventListener("change", () => {
+    applyToggleVisibility(".line-words-en", toggleWordsEn.checked);
   });
 }
 
 /**
- * Показать случайную фразу (случайно выбрав хирагану или катакану).
+ * Показать случайную фразу (hiragana / katakana)
  */
 function showRandomPhrase() {
-  // Определяем, из какого массива тянуть
   const pickHiragana = Math.random() < 0.5;
   const sourceArray = pickHiragana ? hiraganaPhrases : katakanaPhrases;
-
-  // Случайный индекс
   const randomIndex = Math.floor(Math.random() * sourceArray.length);
+
   const phraseObj = sourceArray[randomIndex];
 
-  // Заполняем элементы
   document.getElementById("jp-phrase").textContent = phraseObj.phrase;
   document.getElementById("transcription-ru").textContent =
     phraseObj.transcriptionRu;
@@ -72,7 +73,14 @@ function showRandomPhrase() {
   document.getElementById("translation-en").textContent =
     phraseObj.translationEn;
 
-  // Применяем состояния тумблеров
+  fillWordsList("words-ru", phraseObj.wordsRu);
+  fillWordsList("words-en", phraseObj.wordsEn);
+
+  // Применяем состояние чекбоксов
+  applyToggleVisibility(
+    ".line-1",
+    document.getElementById("toggle-jp-phrase").checked,
+  );
   applyToggleVisibility(
     ".line-2",
     document.getElementById("toggle-transcription-ru").checked,
@@ -82,6 +90,10 @@ function showRandomPhrase() {
     document.getElementById("toggle-translation-ru").checked,
   );
   applyToggleVisibility(
+    ".line-words-ru",
+    document.getElementById("toggle-words-ru").checked,
+  );
+  applyToggleVisibility(
     ".line-4",
     document.getElementById("toggle-transcription-en").checked,
   );
@@ -89,38 +101,36 @@ function showRandomPhrase() {
     ".line-5",
     document.getElementById("toggle-translation-en").checked,
   );
+  applyToggleVisibility(
+    ".line-words-en",
+    document.getElementById("toggle-words-en").checked,
+  );
 }
 
 /**
- * Скрывает или показывает текст внутри заданной строки,
- * но НЕ скрывает сам тумблер.
- *
- * @param {string} selector - например, ".line-2"
- * @param {boolean} isChecked - если true, то текст скрыт (checkbox=ON)
+ * Скрытие текста (но не чекбокса) через visibility.
  */
-function applyToggleVisibility(selector, isChecked) {
-  // Найдём строку (div), где находится и текст, и чекбокс
-  const lineElement = document.querySelector(selector);
-  if (!lineElement) return;
+function applyToggleVisibility(lineSelector, isChecked) {
+  const line = document.querySelector(lineSelector);
+  if (!line) return;
 
-  // Внутри ищем .text-content — это тот span, где собственно текст
-  const textContent = lineElement.querySelector(".text-content");
+  const textContent = line.querySelector(".text-content");
   if (!textContent) return;
 
-  // Если чекбокс включён => скрываем текст, иначе показываем
-  textContent.style.display = isChecked ? "none" : "inline";
+  textContent.style.visibility = isChecked ? "hidden" : "visible";
 }
 
 /**
- * Сохраняем состояние тумблера в localStorage.
+ * Выводим слова (wordsRu / wordsEn)
  */
-function storeToggle(key, value) {
-  localStorage.setItem(key, String(value));
-}
+function fillWordsList(elementId, wordsArray) {
+  const container = document.getElementById(elementId);
+  container.innerHTML = "";
+  if (!wordsArray || wordsArray.length === 0) return;
 
-/**
- * Считываем состояние тумблера из localStorage.
- */
-function getStoredToggle(key) {
-  return localStorage.getItem(key) === "true";
+  wordsArray.forEach((item) => {
+    const div = document.createElement("div");
+    div.textContent = item;
+    container.appendChild(div);
+  });
 }

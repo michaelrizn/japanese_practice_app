@@ -7,6 +7,18 @@ const hiraganaPhrases = [
     translationRu: "Я студент",
     transcriptionEn: "wa~ta~shi wa ga~ku~se~i de~su",
     translationEn: "I am a student",
+    wordsRu: [
+      "わたし (watashi) - я",
+      "は (wa) - частица темы",
+      "がくせい (gakusei) - студент",
+      "です (desu) - глагол-связка",
+    ],
+    wordsEn: [
+      "わたし (watashi) - I",
+      "は (wa) - topic particle",
+      "がくせい (gakusei) - student",
+      "です (desu) - am/is",
+    ],
   },
   {
     phrase: "これはほんです",
@@ -14,6 +26,18 @@ const hiraganaPhrases = [
     translationRu: "Это книга",
     transcriptionEn: "ko~re wa hon de~su",
     translationEn: "This is a book",
+    wordsRu: [
+      "これ (kore) - это",
+      "は (wa) - частица темы",
+      "ほん (hon) - книга",
+      "です (desu) - глагол-связка",
+    ],
+    wordsEn: [
+      "これ (kore) - this",
+      "は (wa) - topic particle",
+      "ほん (hon) - book",
+      "です (desu) - is",
+    ],
   },
   {
     phrase: "すしをたべますか",
@@ -21,6 +45,18 @@ const hiraganaPhrases = [
     translationRu: "Будешь есть суши?",
     transcriptionEn: "su~shi~o ta~be~ma~su~ka",
     translationEn: "Will you eat sushi?",
+    wordsRu: [
+      "すし (sushi) - суши",
+      "を (o) - частица вин. падежа",
+      "たべます (tabemasu) - есть (вежл.)",
+      "か (ka) - вопрос",
+    ],
+    wordsEn: [
+      "すし (sushi) - sushi",
+      "を (o) - object marker",
+      "たべます (tabemasu) - eat (polite)",
+      "か (ka) - question",
+    ],
   },
   {
     phrase: "いただきます",
@@ -28,6 +64,8 @@ const hiraganaPhrases = [
     translationRu: "Приятного аппетита (перед едой)",
     transcriptionEn: "i~ta~da~ki~ma~su",
     translationEn: "Let's eat / bon appétit",
+    wordsRu: ["いただきます (itadakimasu) - (формула перед едой)"],
+    wordsEn: ["いただきます (itadakimasu) - (phrase before eating)"],
   },
   {
     phrase: "ごちそうさまでした",
@@ -35,6 +73,12 @@ const hiraganaPhrases = [
     translationRu: "Спасибо за угощение (после еды)",
     transcriptionEn: "go~chi~so~u~sa~ma~de~shi~ta",
     translationEn: "Thank you for the meal",
+    wordsRu: [
+      "ごちそうさまでした (gochisousama deshita) - (формула после еды)",
+    ],
+    wordsEn: [
+      "ごちそうさまでした (gochisousama deshita) - (phrase after eating)",
+    ],
   },
   {
     phrase: "わたしのなまえはさくらです",
@@ -42,6 +86,22 @@ const hiraganaPhrases = [
     translationRu: "Меня зовут Сакура",
     transcriptionEn: "wa~ta~shi no na~ma~e wa sa~ku~ra de~su",
     translationEn: "My name is Sakura",
+    wordsRu: [
+      "わたし (watashi) - я",
+      "の (no) - частица принадлежности",
+      "なまえ (namae) - имя",
+      "は (wa) - частица темы",
+      "さくら (Sakura) - Сакура",
+      "です (desu) - глагол-связка",
+    ],
+    wordsEn: [
+      "わたし (watashi) - I",
+      "の (no) - possessive particle",
+      "なまえ (namae) - name",
+      "は (wa) - topic particle",
+      "さくら (Sakura) - Sakura",
+      "です (desu) - am/is",
+    ],
   },
   {
     phrase: "おはようございます",
@@ -49,6 +109,14 @@ const hiraganaPhrases = [
     translationRu: "Доброе утро",
     transcriptionEn: "o~ha~yo~u go~za~i~ma~su",
     translationEn: "Good morning",
+    wordsRu: [
+      "おはよう (ohayou) - доброе утро (неформ.)",
+      "ございます (gozaimasu) - вежливое окончание",
+    ],
+    wordsEn: [
+      "おはよう (ohayou) - good morning (casual)",
+      "ございます (gozaimasu) - polite suffix",
+    ],
   },
   {
     phrase: "こんにちわ",
@@ -56,6 +124,8 @@ const hiraganaPhrases = [
     translationRu: "Добрый день",
     transcriptionEn: "ko~n~ni~chi~wa",
     translationEn: "Hello / Good afternoon",
+    wordsRu: ["こんにちは (konnichiwa) - добрый день"],
+    wordsEn: ["こんにちは (konnichiwa) - hello / good afternoon"],
   },
   {
     phrase: "こんばんは",
@@ -63,6 +133,8 @@ const hiraganaPhrases = [
     translationRu: "Добрый вечер",
     transcriptionEn: "ko~n~ban~wa",
     translationEn: "Good evening",
+    wordsRu: ["こんばんは (konbanwa) - добрый вечер"],
+    wordsEn: ["こんばんは (konbanwa) - good evening"],
   },
   {
     phrase: "さようなら",
@@ -70,6 +142,8 @@ const hiraganaPhrases = [
     translationRu: "До свидания",
     transcriptionEn: "sa~yo~u~na~ra",
     translationEn: "Goodbye",
+    wordsRu: ["さようなら (sayounara) - до свидания"],
+    wordsEn: ["さようなら (sayounara) - goodbye"],
   },
   {
     phrase: "ありがとう",
@@ -77,6 +151,8 @@ const hiraganaPhrases = [
     translationRu: "Спасибо",
     transcriptionEn: "a~ri~ga~to",
     translationEn: "Thank you",
+    wordsRu: ["ありがとう (arigatou) - спасибо"],
+    wordsEn: ["ありがとう (arigatou) - thank you"],
   },
   {
     phrase: "すみません",
@@ -84,6 +160,8 @@ const hiraganaPhrases = [
     translationRu: "Извините / Простите",
     transcriptionEn: "su~mi~ma~sen",
     translationEn: "Excuse me / I'm sorry",
+    wordsRu: ["すみません (sumimasen) - извините / простите"],
+    wordsEn: ["すみません (sumimasen) - excuse me / I'm sorry"],
   },
   {
     phrase: "がんばってください",
@@ -91,6 +169,14 @@ const hiraganaPhrases = [
     translationRu: "Удачи / Постарайся!",
     transcriptionEn: "ga~n~ba~tte ku~da~sa~i",
     translationEn: "Do your best / Good luck",
+    wordsRu: [
+      "がんばって (ganbatte) - старайся / держись",
+      "ください (kudasai) - пожалуйста (вежл.)",
+    ],
+    wordsEn: [
+      "がんばって (ganbatte) - do your best / hang in there",
+      "ください (kudasai) - please (polite request)",
+    ],
   },
   {
     phrase: "だいじょうぶですか",
@@ -98,6 +184,16 @@ const hiraganaPhrases = [
     translationRu: "Всё в порядке?",
     transcriptionEn: "da~i~jo~u~bu de~su~ka",
     translationEn: "Are you okay?",
+    wordsRu: [
+      "だいじょうぶ (daijoubu) - всё в порядке",
+      "です (desu) - глагол-связка",
+      "か (ka) - вопрос",
+    ],
+    wordsEn: [
+      "だいじょうぶ (daijoubu) - all right / ok",
+      "です (desu) - is",
+      "か (ka) - question",
+    ],
   },
   {
     phrase: "いってきます",
@@ -105,5 +201,7 @@ const hiraganaPhrases = [
     translationRu: "Я пошёл (говорят, уходя из дома)",
     transcriptionEn: "i~t~te~ki~ma~su",
     translationEn: "I'm off / I'll go and come back",
+    wordsRu: ["いってきます (ittekimasu) - (дословно «уйду и вернусь»)"],
+    wordsEn: ["いってきます (ittekimasu) - (lit. 'I will go and come back')"],
   },
 ];

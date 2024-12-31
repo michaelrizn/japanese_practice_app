@@ -1,27 +1,50 @@
-/* ===== Сброс базовых отступов и чёрный фон ===== */
+/* ===== Базовые стили, тёмная тема ===== */
 html,
 body {
     margin: 0;
     padding: 0;
-    background-color: #000; /* Чёрный фон */
-    color: #fff; /* Белый текст */
+    background-color: #000;
+    color: #fff;
     font-family: sans-serif;
-    font-size: 16px;
 }
 
-/* ===== Упрощённая адаптивная верстка ===== */
 body {
-    width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* ===== Шапка ===== */
-header {
-    padding: 1rem;
-    text-align: center;
+/* ===== Верхнее меню ===== */
+.top-menu {
+    padding: 0.5rem 1rem;
     border-bottom: 1px solid #444;
+    display: flex;
+    align-items: center;
+}
+
+.menu-link {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+    border: 1px solid #fff;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+}
+.menu-link:hover {
+    background-color: #222;
+}
+
+.menu-btn {
+    margin-right: 0.5rem;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.menu-btn:hover {
+    background-color: #222;
 }
 
 /* ===== Основная часть ===== */
@@ -30,24 +53,15 @@ main {
     padding: 1rem;
 }
 
-/*
-   ===== Список упражнений на главной (index.html) =====
-   .exercise-list и её элементы
-*/
+/* Список упражнений на главной */
 .exercise-list {
     list-style: none;
     padding-left: 0;
     margin: 0;
 }
-
 .exercise-list li {
     margin-bottom: 1rem;
 }
-
-/*
-   Ссылка на упражнения (пример: Phrase Practice)
-   На hover — затемняем фон
-*/
 .exercise-list a {
     color: #fff;
     text-decoration: none;
@@ -55,55 +69,54 @@ main {
     padding: 0.5rem;
     border-radius: 4px;
 }
-
 .exercise-list a:hover {
     background-color: #222;
 }
 
-/*
-   ===== Кнопка «Следующая фраза» в том же стиле,
-   что и ссылки на главной
+/* ===== Для Phrase Practice ===== */
+.line {
+    display: flex; /* Горизонтально: текст слева, чекбокс справа */
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #444; /* "длинная черта" снизу */
+}
+
+/* Можно, например, убрать линию у последнего блока, если нужно:
+.line:last-child {
+  border-bottom: none;
+}
 */
+
+.line .text-content {
+    /* Добавьте стили, если нужно */
+}
+
+.words-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+/* Кнопка "Следующая фраза" */
 .exercise-link {
-    display: inline-block;
     color: #fff;
     text-decoration: none;
     border: 1px solid #fff;
     padding: 0.5rem;
     border-radius: 4px;
     cursor: pointer;
+    display: inline-block; /* чтобы не растягиваться */
     margin-top: 1rem;
 }
-
 .exercise-link:hover {
     background-color: #222;
 }
 
-/*
-   ===== Строки с фразой и тумблером в Phrase Practice =====
-   Используем .line для контейнера строки.
-*/
-.line {
-    display: flex; /* Горизонтально: текст слева, тумблер справа */
-    align-items: center;
-    margin: 0.5rem 0;
-}
-
-/*
-   .text-content — сам текст (перевод, транскрипция).
-   По умолчанию никаких особых стилей не нужно,
-   достаточно, что он белый.
-*/
-.line .text-content {
-    /* Можно добавить при желании, например:
-  font-size: 1rem;
-  ... */
-}
-
-/*
-   Тумблер (checkbox).
-   margin-left: auto выталкивает его к правому краю
-*/
-.line input.toggler {
-    margin-left: auto;
+/* Центрируем "Следующая фраза" */
+.next-phrase-center {
+    display: block;
+    width: fit-content;
+    margin: 1rem auto 0; /* авто слева/справа => по центру */
 }
