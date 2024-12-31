@@ -54,7 +54,7 @@ function initToggles() {
 }
 
 /**
- * Показать случайную фразу (hiragana / katakana)
+ * Показываем случайную фразу (хирагана/катакана).
  */
 function showRandomPhrase() {
   const pickHiragana = Math.random() < 0.5;
@@ -63,6 +63,7 @@ function showRandomPhrase() {
 
   const phraseObj = sourceArray[randomIndex];
 
+  // Заполняем
   document.getElementById("jp-phrase").textContent = phraseObj.phrase;
   document.getElementById("transcription-ru").textContent =
     phraseObj.transcriptionRu;
@@ -76,7 +77,7 @@ function showRandomPhrase() {
   fillWordsList("words-ru", phraseObj.wordsRu);
   fillWordsList("words-en", phraseObj.wordsEn);
 
-  // Применяем состояние чекбоксов
+  // Применяем состояние чекбоксов (по умолчанию false => всё видно)
   applyToggleVisibility(
     ".line-1",
     document.getElementById("toggle-jp-phrase").checked,
@@ -107,9 +108,6 @@ function showRandomPhrase() {
   );
 }
 
-/**
- * Скрытие текста (но не чекбокса) через visibility.
- */
 function applyToggleVisibility(lineSelector, isChecked) {
   const line = document.querySelector(lineSelector);
   if (!line) return;
@@ -117,11 +115,13 @@ function applyToggleVisibility(lineSelector, isChecked) {
   const textContent = line.querySelector(".text-content");
   if (!textContent) return;
 
+  // Если чекбокс включён => скрыть текст (visibility: hidden)
+  // Иначе => показать (visibility: visible)
   textContent.style.visibility = isChecked ? "hidden" : "visible";
 }
 
 /**
- * Выводим слова (wordsRu / wordsEn)
+ * Заполняем список слов (wordsRu / wordsEn)
  */
 function fillWordsList(elementId, wordsArray) {
   const container = document.getElementById(elementId);

@@ -14,14 +14,23 @@ body {
     flex-direction: column;
 }
 
-/* ===== Верхнее меню ===== */
+/* ===== Верхнее меню (header) ===== */
 .top-menu {
     padding: 0.5rem 1rem;
     border-bottom: 1px solid #444;
     display: flex;
     align-items: center;
+    justify-content: space-between; /* "Главная" слева, .menu-right справа */
 }
 
+/* Справа блок: кнопки A-/A+, название упражнения */
+.menu-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* расстояние между элементами (кнопки, заголовок) */
+}
+
+/* Текст "Главная" */
 .menu-link {
     color: #fff;
     text-decoration: none;
@@ -34,8 +43,8 @@ body {
     background-color: #222;
 }
 
+/* Кнопки A-/A+ */
 .menu-btn {
-    margin-right: 0.5rem;
     background-color: transparent;
     color: #fff;
     border: 1px solid #fff;
@@ -45,6 +54,14 @@ body {
 }
 .menu-btn:hover {
     background-color: #222;
+}
+
+/* Название упражнения в верхней панели (справа) */
+.exercise-title {
+    font-weight: bold;
+    /* Можно увеличить шрифт:
+  font-size: 1.2rem;
+  */
 }
 
 /* ===== Основная часть ===== */
@@ -73,24 +90,18 @@ main {
     background-color: #222;
 }
 
-/* ===== Для Phrase Practice ===== */
+/* ===== Общие стили для Phrase Practice ===== */
 .line {
-    display: flex; /* Горизонтально: текст слева, чекбокс справа */
-    justify-content: space-between;
+    display: flex;
+    justify-content: space-between; /* текст слева, чекбокс справа */
     align-items: center;
     margin: 0.5rem 0;
     padding: 0.5rem 0;
-    border-bottom: 1px solid #444; /* "длинная черта" снизу */
+    border-bottom: 1px solid #444; /* разделительная линия */
 }
-
-/* Можно, например, убрать линию у последнего блока, если нужно:
-.line:last-child {
-  border-bottom: none;
-}
-*/
 
 .line .text-content {
-    /* Добавьте стили, если нужно */
+    /* при желании любые стили: min-width, font-size ... */
 }
 
 .words-list {

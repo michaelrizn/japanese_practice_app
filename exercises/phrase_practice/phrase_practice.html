@@ -10,21 +10,26 @@
     <body>
         <!-- Верхнее меню -->
         <header class="top-menu">
+            <!-- Кнопка "Главная" слева -->
             <a href="../../index.html" class="menu-link">← Главная</a>
-            <button id="font-decrease" class="menu-btn">A-</button>
-            <button id="font-increase" class="menu-btn">A+</button>
+
+            <!-- Справа: кнопки + название упражнения -->
+            <div class="menu-right">
+                <button id="font-decrease" class="menu-btn">A-</button>
+                <button id="font-increase" class="menu-btn">A+</button>
+                <span class="exercise-title">Phrase Practice</span>
+            </div>
         </header>
 
         <main>
-            <h2>Phrase Practice</h2>
+            <!-- УБРАЛИ <h2>Phrase Practice</h2> -->
 
-            <!-- Японская фраза -->
+            <!-- Блоки упражнения -->
             <div class="line line-1">
                 <span class="text-content" id="jp-phrase"></span>
                 <input type="checkbox" id="toggle-jp-phrase" class="toggler" />
             </div>
 
-            <!-- Транскрипция RU -->
             <div class="line line-2">
                 <span class="text-content" id="transcription-ru"></span>
                 <input
@@ -34,7 +39,6 @@
                 />
             </div>
 
-            <!-- Перевод RU -->
             <div class="line line-3">
                 <span class="text-content" id="translation-ru"></span>
                 <input
@@ -44,13 +48,11 @@
                 />
             </div>
 
-            <!-- Words RU -->
             <div class="line line-words-ru">
                 <div class="text-content words-list" id="words-ru"></div>
                 <input type="checkbox" id="toggle-words-ru" class="toggler" />
             </div>
 
-            <!-- Транскрипция EN -->
             <div class="line line-4">
                 <span class="text-content" id="transcription-en"></span>
                 <input
@@ -60,7 +62,6 @@
                 />
             </div>
 
-            <!-- Перевод EN -->
             <div class="line line-5">
                 <span class="text-content" id="translation-en"></span>
                 <input
@@ -70,13 +71,12 @@
                 />
             </div>
 
-            <!-- Words EN -->
             <div class="line line-words-en">
                 <div class="text-content words-list" id="words-en"></div>
                 <input type="checkbox" id="toggle-words-en" class="toggler" />
             </div>
 
-            <!-- Кнопка "Следующая фраза" по центру, не растягивается -->
+            <!-- Кнопка "Следующая фраза" по центру -->
             <div
                 id="next-phrase-button"
                 class="exercise-link next-phrase-center"
@@ -85,7 +85,7 @@
             </div>
         </main>
 
-        <!-- Подключаем базы фраз и логику -->
+        <!-- Подключаем "базы" и логику -->
         <script src="hiragana_phrases.js"></script>
         <script src="katakana_phrases.js"></script>
         <script src="phrase_practice.js"></script>
