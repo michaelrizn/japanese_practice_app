@@ -10,21 +10,27 @@
     <body>
         <!-- Верхнее меню -->
         <header class="top-menu">
-            <!-- Кнопка "Главная" слева -->
-            <a href="../../index.html" class="menu-link">← Главная</a>
+            <!-- Левая часть: ссылка "← Главная" -->
+            <div class="menu-left">
+                <a href="../../index.html" class="menu-link">← Главная</a>
+            </div>
 
-            <!-- Справа: кнопки + название упражнения -->
+            <!-- Центральная часть: название упражнения -->
+            <div class="menu-center">
+                <span class="exercise-title">Phrase Practice</span>
+            </div>
+
+            <!-- Правая часть: кнопки A-/A+ -->
             <div class="menu-right">
                 <button id="font-decrease" class="menu-btn">A-</button>
                 <button id="font-increase" class="menu-btn">A+</button>
-                <span class="exercise-title">Phrase Practice</span>
             </div>
         </header>
 
         <main>
-            <!-- УБРАЛИ <h2>Phrase Practice</h2> -->
+            <!-- Убираем заголовок h2, т.к. теперь он сверху в меню -->
 
-            <!-- Блоки упражнения -->
+            <!-- Блоки упражнения (строки) -->
             <div class="line line-1">
                 <span class="text-content" id="jp-phrase"></span>
                 <input type="checkbox" id="toggle-jp-phrase" class="toggler" />
@@ -85,7 +91,7 @@
             </div>
         </main>
 
-        <!-- Подключаем "базы" и логику -->
+        <!-- Подключаем базы фраз и скрипт -->
         <script src="hiragana_phrases.js"></script>
         <script src="katakana_phrases.js"></script>
         <script src="phrase_practice.js"></script>

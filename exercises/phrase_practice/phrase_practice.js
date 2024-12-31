@@ -1,4 +1,4 @@
-// phrase_practice.js
+// exercises/phrase_practice/phrase_practice.js
 
 window.addEventListener("DOMContentLoaded", () => {
   initToggles();
@@ -21,7 +21,7 @@ function initToggles() {
   const toggleTranslationEn = document.getElementById("toggle-translation-en");
   const toggleWordsEn = document.getElementById("toggle-words-en");
 
-  // По умолчанию все выключены => всё видно
+  // Все тумблеры OFF => все строки видны
   toggleJpPhrase.checked = false;
   toggleTranscriptionRu.checked = false;
   toggleTranslationRu.checked = false;
@@ -53,17 +53,15 @@ function initToggles() {
   });
 }
 
-/**
- * Показываем случайную фразу (хирагана/катакана).
- */
+/** Показать случайную фразу */
 function showRandomPhrase() {
+  // 50/50 hiragana / katakana
   const pickHiragana = Math.random() < 0.5;
   const sourceArray = pickHiragana ? hiraganaPhrases : katakanaPhrases;
   const randomIndex = Math.floor(Math.random() * sourceArray.length);
 
   const phraseObj = sourceArray[randomIndex];
 
-  // Заполняем
   document.getElementById("jp-phrase").textContent = phraseObj.phrase;
   document.getElementById("transcription-ru").textContent =
     phraseObj.transcriptionRu;
@@ -77,7 +75,7 @@ function showRandomPhrase() {
   fillWordsList("words-ru", phraseObj.wordsRu);
   fillWordsList("words-en", phraseObj.wordsEn);
 
-  // Применяем состояние чекбоксов (по умолчанию false => всё видно)
+  // Применяем текущее состояние тумблеров
   applyToggleVisibility(
     ".line-1",
     document.getElementById("toggle-jp-phrase").checked,
@@ -108,6 +106,7 @@ function showRandomPhrase() {
   );
 }
 
+/** Скрыть/показать текст через visibility (чекбокс остаётся) */
 function applyToggleVisibility(lineSelector, isChecked) {
   const line = document.querySelector(lineSelector);
   if (!line) return;
@@ -115,14 +114,10 @@ function applyToggleVisibility(lineSelector, isChecked) {
   const textContent = line.querySelector(".text-content");
   if (!textContent) return;
 
-  // Если чекбокс включён => скрыть текст (visibility: hidden)
-  // Иначе => показать (visibility: visible)
   textContent.style.visibility = isChecked ? "hidden" : "visible";
 }
 
-/**
- * Заполняем список слов (wordsRu / wordsEn)
- */
+/** Выводим перевод слов (RU или EN) */
 function fillWordsList(elementId, wordsArray) {
   const container = document.getElementById(elementId);
   container.innerHTML = "";

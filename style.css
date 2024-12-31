@@ -16,25 +16,35 @@ body {
 
 /* ===== Верхнее меню (header) ===== */
 .top-menu {
+    display: flex; /* Три секции: слева, центр, справа */
+    align-items: center;
     padding: 0.5rem 1rem;
     border-bottom: 1px solid #444;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* "Главная" слева, .menu-right справа */
 }
 
-/* Справа блок: кнопки A-/A+, название упражнения */
+/* Левая колонка (ссылка «Главная») */
+.menu-left {
+    flex: 0 0 auto; /* ширина под контент, не растягивается */
+}
+
+/* Центральная колонка (название, если нужно) */
+.menu-center {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+/* Правая колонка (кнопки A-/A+) */
 .menu-right {
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* расстояние между элементами (кнопки, заголовок) */
+    gap: 0.5rem; /* расстояние между кнопками */
 }
 
-/* Текст "Главная" */
+/* Ссылка в меню */
 .menu-link {
     color: #fff;
     text-decoration: none;
-    margin-right: 1rem;
     border: 1px solid #fff;
     padding: 0.3rem 0.5rem;
     border-radius: 4px;
@@ -54,14 +64,6 @@ body {
 }
 .menu-btn:hover {
     background-color: #222;
-}
-
-/* Название упражнения в верхней панели (справа) */
-.exercise-title {
-    font-weight: bold;
-    /* Можно увеличить шрифт:
-  font-size: 1.2rem;
-  */
 }
 
 /* ===== Основная часть ===== */
@@ -90,18 +92,19 @@ main {
     background-color: #222;
 }
 
-/* ===== Общие стили для Phrase Practice ===== */
+/* ===== Для Phrase Practice ===== */
 .line {
-    display: flex;
-    justify-content: space-between; /* текст слева, чекбокс справа */
+    display: flex; /* текст слева, чекбокс справа */
+    justify-content: space-between;
     align-items: center;
     margin: 0.5rem 0;
     padding: 0.5rem 0;
-    border-bottom: 1px solid #444; /* разделительная линия */
+    border-bottom: 1px solid #444; /* разделительная линия между строками */
 }
 
+/* Текст, который скрываем через visibility */
 .line .text-content {
-    /* при желании любые стили: min-width, font-size ... */
+    /* при желании - дополнительные стили */
 }
 
 .words-list {
@@ -118,16 +121,15 @@ main {
     padding: 0.5rem;
     border-radius: 4px;
     cursor: pointer;
-    display: inline-block; /* чтобы не растягиваться */
+    display: inline-block;
     margin-top: 1rem;
 }
 .exercise-link:hover {
     background-color: #222;
 }
-
 /* Центрируем "Следующая фраза" */
 .next-phrase-center {
     display: block;
     width: fit-content;
-    margin: 1rem auto 0; /* авто слева/справа => по центру */
+    margin: 1rem auto 0;
 }

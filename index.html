@@ -10,14 +10,20 @@
     <body>
         <!-- Верхнее меню -->
         <header class="top-menu">
-            <!-- Слева "Главная", но мы уже на ней -->
-            <a href="index.html" class="menu-link">Главная</a>
+            <!-- Левая часть: "Главная" (по факту мы уже на ней) -->
+            <div class="menu-left">
+                <a href="index.html" class="menu-link">Главная</a>
+            </div>
 
-            <!-- Справа: кнопки изменения шрифта -->
+            <!-- Центральная часть: здесь можно ничего не писать (или другой заголовок) -->
+            <div class="menu-center">
+                <!-- Пусто либо <span>Главная</span> -->
+            </div>
+
+            <!-- Правая часть: кнопки изменения шрифта -->
             <div class="menu-right">
                 <button id="font-decrease" class="menu-btn">A-</button>
                 <button id="font-increase" class="menu-btn">A+</button>
-                <!-- Здесь нет названия упражнения, потому что это главная -->
             </div>
         </header>
 
@@ -29,7 +35,7 @@
                         Phrase Practice
                     </a>
                 </li>
-                <!-- Можно добавить и другие упражнения -->
+                <!-- При желании добавьте и другие упражнения -->
             </ul>
         </main>
     </body>
