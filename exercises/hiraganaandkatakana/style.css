@@ -1,0 +1,98 @@
+/* Общие стили */
+body {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Основной символ */
+#main-symbol {
+    font-size: 72px;
+    margin-bottom: 40px;
+}
+
+/* Контейнер вариантов */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Варианты */
+.option {
+    font-size: 18px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.option:hover {
+    background-color: #ddd;
+}
+
+/* Горизонтальная черта */
+.divider {
+    border: 0;
+    height: 1px;
+    background-color: white;
+    margin: 10px 0;
+}
+
+/* Обратная связь */
+.feedback {
+    margin-top: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+/* Верхнее меню */
+.top-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #222;
+    border-bottom: 1px solid #444;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.menu-link:hover {
+    background-color: #444;
+}
+
+.menu-btn {
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menu-btn:hover {
+    background-color: #444;
+}
+
+/* Центрируем основные блоки */
+.center {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 500px;
+}

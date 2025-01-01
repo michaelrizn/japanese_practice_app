@@ -2,10 +2,9 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Phrase Practice</title>
         <link rel="stylesheet" href="../../style.css" />
-        <script src="../../app.js" defer></script>
     </head>
     <body>
         <!-- Верхнее меню -->
@@ -28,9 +27,7 @@
         </header>
 
         <main>
-            <!-- Убираем заголовок h2, т.к. теперь он сверху в меню -->
-
-            <!-- Блоки упражнения (строки) -->
+            <!-- Блоки упражнения -->
             <div class="line line-1">
                 <span class="text-content" id="jp-phrase"></span>
                 <input type="checkbox" id="toggle-jp-phrase" class="toggler" />
@@ -82,7 +79,7 @@
                 <input type="checkbox" id="toggle-words-en" class="toggler" />
             </div>
 
-            <!-- Кнопка "Следующая фраза" по центру -->
+            <!-- Кнопка "Следующая фраза" -->
             <div
                 id="next-phrase-button"
                 class="exercise-link next-phrase-center"
@@ -91,9 +88,11 @@
             </div>
         </main>
 
-        <!-- Подключаем базы фраз и скрипт -->
-        <script src="hiragana_phrases.js"></script>
-        <script src="katakana_phrases.js"></script>
-        <script src="phrase_practice.js"></script>
+        <!-- Подключение скриптов -->
+        <script src="../../app.js" defer></script>
+        <!-- Корневой app.js -->
+        <script src="hiragana_phrases.js" defer></script>
+        <script src="katakana_phrases.js" defer></script>
+        <script src="phrase_practice.js" defer></script>
     </body>
 </html>
