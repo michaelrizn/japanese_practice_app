@@ -9,17 +9,12 @@
     <body>
         <!-- Верхнее меню -->
         <header class="top-menu">
-            <!-- Левая часть: ссылка "← Главная" -->
             <div class="menu-left">
                 <a href="../../index.html" class="menu-link">← Главная</a>
             </div>
-
-            <!-- Центральная часть: название упражнения -->
             <div class="menu-center">
                 <span class="exercise-title">Phrases</span>
             </div>
-
-            <!-- Правая часть: кнопки A-/A+ -->
             <div class="menu-right">
                 <button id="font-decrease" class="menu-btn">A-</button>
                 <button id="font-increase" class="menu-btn">A+</button>
@@ -27,7 +22,6 @@
         </header>
 
         <main>
-            <!-- Блоки упражнения -->
             <div class="line line-1">
                 <span class="text-content" id="jp-phrase"></span>
                 <input type="checkbox" id="toggle-jp-phrase" class="toggler" />
@@ -79,7 +73,6 @@
                 <input type="checkbox" id="toggle-words-en" class="toggler" />
             </div>
 
-            <!-- Кнопка "Следующая фраза" -->
             <div
                 id="next-phrase-button"
                 class="exercise-link next-phrase-center"
@@ -88,11 +81,10 @@
             </div>
         </main>
 
-        <!-- Подключение скриптов -->
-        <script src="../../app.js" defer></script>
-        <!-- Корневой app.js -->
+        <!-- Подключение JS-файлов -->
         <script src="hiragana_phrases.js" defer></script>
         <script src="katakana_phrases.js" defer></script>
-        <script src="phrase_practice.js" defer></script>
+        <script src="kanji_phrases.js" defer></script>
+        <script src="app.js" defer></script>
     </body>
 </html>

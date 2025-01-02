@@ -1,5 +1,3 @@
-// exercises/phrase_practice/phrase_practice.js
-
 window.addEventListener("DOMContentLoaded", () => {
   initToggles();
   showRandomPhrase();
@@ -21,7 +19,6 @@ function initToggles() {
   const toggleTranslationEn = document.getElementById("toggle-translation-en");
   const toggleWordsEn = document.getElementById("toggle-words-en");
 
-  // Все тумблеры OFF => все строки видны
   toggleJpPhrase.checked = false;
   toggleTranscriptionRu.checked = false;
   toggleTranslationRu.checked = false;
@@ -53,15 +50,63 @@ function initToggles() {
   });
 }
 
-/** Показать случайную фразу */
 function showRandomPhrase() {
-  // 50/50 hiragana / katakana
-  const pickHiragana = Math.random() < 0.5;
-  const sourceArray = pickHiragana ? hiraganaPhrases : katakanaPhrases;
-  const randomIndex = Math.floor(Math.random() * sourceArray.length);
+  const sources = [];
 
-  const phraseObj = sourceArray[randomIndex];
+  // Проверяем доступность каждого источника и добавляем его в массив
+  if (typeof hiraganaPhrases !== "undefined") {
+    console.log("hiraganaPhrases доступен:", hiraganaPhrases);
+    sources.push(hiraganaPhrases);
+  } else {
+    console.error("hiraganaPhrases не определён");
+  }
 
+  if (typeof katakanaPhrases !== "undefined") {
+    console.log("katakanaPhrases доступен:", katakanaPhrases);
+    sources.push(katakanaPhrases);
+  } else {
+    console.error("katakanaPhrases не определён");
+  }
+
+  if (typeof kanjiPhrases !== "undefined") {
+    console.log("kanjiPhrases доступен:", kanjiPhrases);
+    sources.push(kanjiPhrases);
+  } else {
+    console.error("kanjiPhrases не определён");
+  }
+
+  // Проверяем, есть ли доступные источники фраз
+  if (sources.length === 0) {
+    console.error("Нет доступных источников фраз");
+    return;
+  }
+
+  // Логируем доступные источники
+  console.log("Доступные источники фраз:", sources);
+
+  // Выбираем случайный источник
+  const sourceIndex = Math.floor(Math.random() * sources.length);
+  const sourceArray = sources[sourceIndex];
+
+  // Логируем, из какого источника взята фраза
+  console.log(
+    "Выбранный источник:",
+    sourceArray === hiraganaPhrases
+      ? "hiraganaPhrases"
+      : sourceArray === katakanaPhrases
+        ? "katakanaPhrases"
+        : sourceArray === kanjiPhrases
+          ? "kanjiPhrases"
+          : "неизвестный источник",
+  );
+
+  // Выбираем случайную фразу из выбранного источника
+  const phraseObj = sourceArray[Math.floor(Math.random() * sourceArray.length)];
+
+  // Логируем выбранную фразу
+  console.log("Выбранная фраза:", phraseObj);
+
+  // Отображаем фразу на странице
   document.getElementById("jp-phrase").textContent = phraseObj.phrase;
   document.getElementById("transcription-ru").textContent =
     phraseObj.transcriptionRu;
@@ -75,7 +120,6 @@ function showRandomPhrase() {
   fillWordsList("words-ru", phraseObj.wordsRu);
   fillWordsList("words-en", phraseObj.wordsEn);
 
-  // Применяем текущее состояние тумблеров
   applyToggleVisibility(
     ".line-1",
     document.getElementById("toggle-jp-phrase").checked,
@@ -106,7 +150,6 @@ function showRandomPhrase() {
   );
 }
 
-/** Скрыть/показать текст через visibility (чекбокс остаётся) */
 function applyToggleVisibility(lineSelector, isChecked) {
   const line = document.querySelector(lineSelector);
   if (!line) return;
@@ -117,7 +160,6 @@ function applyToggleVisibility(lineSelector, isChecked) {
   textContent.style.visibility = isChecked ? "hidden" : "visible";
 }
 
-/** Выводим перевод слов (RU или EN) */
 function fillWordsList(elementId, wordsArray) {
   const container = document.getElementById(elementId);
   container.innerHTML = "";
