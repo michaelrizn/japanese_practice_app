@@ -1,6 +1,6 @@
-// exercises/phrase_practice/katakana_phrases.js
+// exercises/phrase_practice/data/katakana_phrases_01.js
 
-const katakanaPhrases = [
+var katakanaPhrases01 = [
   {
     phrase: "アイスクリームがすきです",
     transcriptionRu: "а~и~су~ку~ри~му га су~ки дэ~с",
@@ -240,38 +240,42 @@ const katakanaPhrases = [
     phrase: "コンビニはどこですか",
     transcriptionRu: "ко~н~би~ни ва до~ко дэ~с~ка",
     translationRu: "Где находится магазин 'комбини'?",
-    transcriptionEn: "ko~n~bi~ni wa do~ko de~su~ka",
+    transcriptionEn: "konbini wa doko desu ka",
     translationEn: "Where is the convenience store?",
     wordsRu: [
       "コンビニ (konbini) - комбини (мини-маркет)",
       "は (wa) - (частица темы)",
       "どこ (doko) - где",
       "です (desu) - (глагол-связка)",
-      "か (ka) - (вопрос)",
+      "か (ka) - (вопрос)"
     ],
     wordsEn: [
       "コンビニ (konbini) - convenience store",
       "は (wa) - topic particle",
       "どこ (doko) - where",
       "です (desu) - is",
-      "か (ka) - ?",
+      "か (ka) - ?"
     ],
   },
   {
-    phrase: "カラオケにいきましょう",
-    transcriptionRu: "ка~ра~о~кэ ни и~ки~ма~шо",
-    translationRu: "Пойдём в караоке",
-    transcriptionEn: "ka~ra~o~ke ni i~ki~ma~sho",
-    translationEn: "Let's go to karaoke",
+    phrase: "トイレはどこですか",
+    transcriptionRu: "то~и~рэ ва до~ко дэ~с~ка",
+    translationRu: "Где туалет?",
+    transcriptionEn: "toire wa doko desu ka",
+    translationEn: "Where is the restroom?",
     wordsRu: [
-      "カラオケ (karaoke) - караоке",
-      "に (ni) - (направление)",
-      "いきましょう (ikimashou) - пойдём (приглаш.)",
+      "トイレ (toire) - туалет",
+      "は (wa) - тема",
+      "どこ (doko) - где",
+      "です (desu) - глагол-связка",
+      "か (ka) - вопрос"
     ],
     wordsEn: [
-      "カラオケ (karaoke) - karaoke",
-      "に (ni) - to(ward)",
-      "いきましょう (ikimashou) - let's go",
+      "トイレ (toire) - restroom",
+      "は (wa) - topic particle",
+      "どこ (doko) - where",
+      "です (desu) - is",
+      "か (ka) - question"
     ],
   },
-];
+]; 

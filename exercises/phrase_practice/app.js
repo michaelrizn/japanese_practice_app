@@ -1,10 +1,47 @@
 window.addEventListener("DOMContentLoaded", () => {
   initToggles();
+  initPhraseSources();
   showRandomPhrase();
 
   const nextButton = document.getElementById("next-phrase-button");
   nextButton.addEventListener("click", showRandomPhrase);
 });
+
+// Массив для хранения всех доступных источников фраз
+const phraseSources = [];
+
+// Функция для инициализации источников фраз
+function initPhraseSources() {
+  // Удаляем из katakana-файла фразы без катаканы (только хирагана)
+  window.katakanaPhrases01 = window.katakanaPhrases01.filter(item => /[\u30A0-\u30FF]/.test(item.phrase));
+  // Удаляем из kanji-файла фразы без иероглифов (только хирагана)
+  window.kanjiPhrases01 = window.kanjiPhrases01.filter(item => /[\u4E00-\u9FFF]/.test(item.phrase));
+  // Регистрируем доступные источники фраз
+  registerPhraseSource("hiraganaPhrases01");
+  registerPhraseSource("katakanaPhrases01");
+  registerPhraseSource("kanjiPhrases01");
+  
+  // Можно добавить будущие источники:
+  // registerPhraseSource("hiraganaPhrases02"); и т.д.
+  
+  console.log(`Инициализировано ${phraseSources.length} источников фраз`);
+}
+
+// Функция для регистрации источника фраз
+function registerPhraseSource(sourceVarName) {
+  const globalVarName = sourceVarName;
+  const sourceArray = window[globalVarName];
+  
+  if (Array.isArray(sourceArray)) {
+    phraseSources.push({
+      name: globalVarName,
+      phrases: sourceArray
+    });
+    console.log(`Зарегистрирован источник: ${globalVarName} (${sourceArray.length} фраз)`);
+  } else {
+    console.error(`Источник ${globalVarName} не найден или не является массивом`);
+  }
+}
 
 function initToggles() {
   const toggleJpPhrase = document.getElementById("toggle-jp-phrase");
@@ -51,57 +88,24 @@ function initToggles() {
 }
 
 function showRandomPhrase() {
-  const sources = [];
-
-  // Проверяем доступность каждого источника и добавляем его в массив
-  if (typeof hiraganaPhrases !== "undefined") {
-    console.log("hiraganaPhrases доступен:", hiraganaPhrases);
-    sources.push(hiraganaPhrases);
-  } else {
-    console.error("hiraganaPhrases не определён");
-  }
-
-  if (typeof katakanaPhrases !== "undefined") {
-    console.log("katakanaPhrases доступен:", katakanaPhrases);
-    sources.push(katakanaPhrases);
-  } else {
-    console.error("katakanaPhrases не определён");
-  }
-
-  if (typeof kanjiPhrases !== "undefined") {
-    console.log("kanjiPhrases доступен:", kanjiPhrases);
-    sources.push(kanjiPhrases);
-  } else {
-    console.error("kanjiPhrases не определён");
-  }
-
   // Проверяем, есть ли доступные источники фраз
-  if (sources.length === 0) {
+  if (phraseSources.length === 0) {
     console.error("Нет доступных источников фраз");
     return;
   }
 
   // Логируем доступные источники
-  console.log("Доступные источники фраз:", sources);
+  console.log("Доступные источники фраз:", phraseSources);
 
   // Выбираем случайный источник
-  const sourceIndex = Math.floor(Math.random() * sources.length);
-  const sourceArray = sources[sourceIndex];
+  const sourceIndex = Math.floor(Math.random() * phraseSources.length);
+  const source = phraseSources[sourceIndex];
 
   // Логируем, из какого источника взята фраза
-  console.log(
-    "Выбранный источник:",
-    sourceArray === hiraganaPhrases
-      ? "hiraganaPhrases"
-      : sourceArray === katakanaPhrases
-        ? "katakanaPhrases"
-        : sourceArray === kanjiPhrases
-          ? "kanjiPhrases"
-          : "неизвестный источник",
-  );
+  console.log("Выбранный источник:", source.name);
 
   // Выбираем случайную фразу из выбранного источника
-  const phraseObj = sourceArray[Math.floor(Math.random() * sourceArray.length)];
+  const phraseObj = source.phrases[Math.floor(Math.random() * source.phrases.length)];
 
   // Логируем выбранную фразу
   console.log("Выбранная фраза:", phraseObj);
