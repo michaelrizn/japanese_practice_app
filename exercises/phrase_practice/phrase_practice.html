@@ -1,90 +1,61 @@
 <!doctype html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Phrase Practice</title>
-        <link rel="stylesheet" href="../../style.css" />
-    </head>
-    <body>
-        <!-- Верхнее меню -->
-        <header class="top-menu">
-            <div class="menu-left">
-                <a href="../../index.html" class="menu-link">← Главная</a>
-            </div>
-            <div class="menu-center">
-                <span class="exercise-title">Phrases</span>
-            </div>
-            <div class="menu-right">
-                <button id="font-decrease" class="menu-btn">A-</button>
-                <button id="font-increase" class="menu-btn">A+</button>
-            </div>
-        </header>
-
-        <main>
-            <div class="line line-1">
-                <span class="text-content" id="jp-phrase"></span>
-                <input type="checkbox" id="toggle-jp-phrase" class="toggler" />
-            </div>
-
-            <div class="line line-2">
-                <span class="text-content" id="transcription-ru"></span>
-                <input
-                    type="checkbox"
-                    id="toggle-transcription-ru"
-                    class="toggler"
-                />
-            </div>
-
-            <div class="line line-3">
-                <span class="text-content" id="translation-ru"></span>
-                <input
-                    type="checkbox"
-                    id="toggle-translation-ru"
-                    class="toggler"
-                />
-            </div>
-
-            <div class="line line-words-ru">
-                <div class="text-content words-list" id="words-ru"></div>
-                <input type="checkbox" id="toggle-words-ru" class="toggler" />
-            </div>
-
-            <div class="line line-4">
-                <span class="text-content" id="transcription-en"></span>
-                <input
-                    type="checkbox"
-                    id="toggle-transcription-en"
-                    class="toggler"
-                />
-            </div>
-
-            <div class="line line-5">
-                <span class="text-content" id="translation-en"></span>
-                <input
-                    type="checkbox"
-                    id="toggle-translation-en"
-                    class="toggler"
-                />
-            </div>
-
-            <div class="line line-words-en">
-                <div class="text-content words-list" id="words-en"></div>
-                <input type="checkbox" id="toggle-words-en" class="toggler" />
-            </div>
-
-            <div
-                id="next-phrase-button"
-                class="exercise-link next-phrase-center"
-            >
-                Следующая фраза
-            </div>
-        </main>
-
-        <!-- Подключение JS-файлов -->
-        <script src="data/hiragana_phrases_01.js" defer></script>
-        <script src="data/katakana_phrases_01.js" defer></script>
-        <script src="data/kanji_phrases_01.js" defer></script>
-        <script src="app.js" defer></script>
-    </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phrase Practice</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<header class="top-menu">
+<div class="menu-left">
+<a href="../../index.html" class="menu-link">← Main</a>
+</div>
+<div class="menu-center">
+<span class="exercise-title">Phrases</span>
+</div>
+<div class="menu-right">
+<button id="font-decrease" class="menu-btn">A-</button>
+<button id="font-increase" class="menu-btn">A+</button>
+</div>
+</header>
+<main>
+<div class="line line-1">
+<span class="text-content" id="jp-phrase"></span>
+<input type="checkbox" id="toggle-jp-phrase" class="toggler">
+</div>
+<div class="line line-2">
+<span class="text-content" id="transcription-ru"></span>
+<input type="checkbox" id="toggle-transcription-ru" class="toggler">
+</div>
+<div class="line line-3">
+<span class="text-content" id="translation-ru"></span>
+<input type="checkbox" id="toggle-translation-ru" class="toggler">
+</div>
+<div class="line line-words-ru">
+<div class="text-content words-list" id="words-ru"></div>
+<input type="checkbox" id="toggle-words-ru" class="toggler">
+</div>
+<div class="line line-4">
+<span class="text-content" id="transcription-en"></span>
+<input type="checkbox" id="toggle-transcription-en" class="toggler">
+</div>
+<div class="line line-5">
+<span class="text-content" id="translation-en"></span>
+<input type="checkbox" id="toggle-translation-en" class="toggler">
+</div>
+<div class="line line-words-en">
+<div class="text-content words-list" id="words-en"></div>
+<input type="checkbox" id="toggle-words-en" class="toggler">
+</div>
+<div id="next-phrase-button" class="exercise-link next-phrase-center">
+Следующая фраза
+</div>
+</main>
+<script src="../../common.js" defer></script>
+<script src="data/hiragana_phrases_01.js" defer></script>
+<script src="data/katakana_phrases_01.js" defer></script>
+<script src="data/kanji_phrases_01.js" defer></script>
+<script src="app.js" defer></script>
+</body>
 </html>

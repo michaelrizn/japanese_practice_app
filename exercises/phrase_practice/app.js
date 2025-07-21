@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
+  initFontSize();
   initToggles();
   initPhraseSources();
   showRandomPhrase();
