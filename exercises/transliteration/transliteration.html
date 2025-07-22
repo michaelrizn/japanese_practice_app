@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japanese Transliteration</title>
+<link rel="stylesheet" href="../../style.css">
+<script src="data/kanji_n5.js"></script>
+<script src="data/kanji_n4.js"></script>
+<script src="transliteration.js"></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="top-menu">
+<div class="menu-left">
+<a href="../../index.html" class="menu-link">← Main</a>
+</div>
+<div class="menu-center">
+<span class="exercise-title">Transliteration</span>
+</div>
+<div class="menu-right">
+<button id="font-decrease" class="menu-btn">A-</button>
+<button id="font-increase" class="menu-btn">A+</button>
+</div>
+</header>
+<main>
+<div class="transliteration-container">
+<div class="input-section">
+<div class="input-row">
+<textarea id="japanese-input" placeholder="これは鉛筆です"></textarea>
+<button id="paste-button" class="paste-btn">📋</button>
+</div>
+</div>
+<div id="transliteration-result" class="result-section"></div>
+</div>
+</main>
+</body>
+</html>

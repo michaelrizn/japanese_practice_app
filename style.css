@@ -10,6 +10,7 @@
     --success-color: #68AA7E;
     --transition-time: 0.3s;
     --border-radius: 4px;
+    --scale-factor: 2;
 }
 html, body {
     margin: 0;
@@ -204,5 +205,397 @@ main {
         order: 3;
         width: 100%;
         justify-content: center;
+    }
+}
+
+.transliteration-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: clamp(0.5rem, 2vw, 1rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 2vw, 0.8rem);
+    overflow: hidden;
+}
+
+.level-selector {
+    margin-bottom: clamp(0.5rem, 2vw, 0.8rem);
+    text-align: center;
+}
+
+.level-selector label {
+    display: block;
+    margin-bottom: clamp(0.5rem, 2vw, 0.8rem);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.level-buttons {
+    display: flex;
+    gap: clamp(0.5rem, 2vw, 0.8rem);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.level-btn {
+    padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.8rem, 3vw, 1rem);
+    border: 2px solid var(--border-color);
+    background: var(--element-bg);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all var(--transition-time);
+    color: var(--secondary-text);
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.level-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background-color: var(--hover-bg);
+}
+
+.level-btn.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.level-btn.active:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    opacity: 0.9;
+}
+
+.input-section {
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+.input-row {
+    display: flex;
+    gap: clamp(0.5rem, 1.5vw, 0.8rem);
+    margin-bottom: clamp(0.3rem, 1.5vw, 0.6rem);
+    align-items: stretch;
+}
+
+#japanese-input {
+    flex: 1;
+    padding: clamp(0.5rem, 2vw, 0.8rem);
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-family: sans-serif;
+    resize: none;
+    min-height: 1em;
+    transition: all var(--transition-time);
+    overflow-y: hidden;
+    height: auto;
+    line-height: 1.4;
+    box-sizing: border-box;
+}
+
+#japanese-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: var(--hover-bg);
+}
+
+.paste-btn {
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: clamp(0.2rem, 0.67vw, 0.27rem);
+    cursor: pointer;
+    font-size: clamp(0.4rem, 1vw, 0.5rem);
+    transition: all var(--transition-time);
+    min-width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.paste-btn:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.input-buttons {
+    display: flex;
+    gap: clamp(0.1rem, 0.5vw, 0.2rem);
+    justify-content: flex-end;
+    margin-top: clamp(0.1rem, 0.5vw, 0.2rem);
+}
+
+.result-section {
+    min-height: 0;
+}
+
+.char-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(24px * var(--scale-factor)), max-content));
+    gap: clamp(calc(0.07rem * var(--scale-factor)), calc(0.3vw * var(--scale-factor)), calc(0.13rem * var(--scale-factor)));
+    margin-top: clamp(0.1rem, 0.5vw, 0.2rem);
+    width: 100%;
+    justify-content: start;
+}
+
+.char-item {
+    background-color: var(--element-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: clamp(calc(0.07rem * var(--scale-factor)), calc(0.33vw * var(--scale-factor)), calc(0.17rem * var(--scale-factor)));
+    text-align: center;
+    transition: all var(--transition-time);
+    min-height: calc(24px * var(--scale-factor));
+    max-height: calc(30px * var(--scale-factor));
+    width: calc(24px * var(--scale-factor));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.char-item.kanji {
+    min-height: clamp(calc(33px * var(--scale-factor)), calc(5vw * var(--scale-factor)), calc(47px * var(--scale-factor)));
+    max-height: clamp(calc(40px * var(--scale-factor)), calc(6vw * var(--scale-factor)), calc(53px * var(--scale-factor)));
+    width: clamp(calc(33px * var(--scale-factor)), calc(5vw * var(--scale-factor)), calc(47px * var(--scale-factor)));
+}
+
+.char-item:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--accent-color);
+}
+
+.char-item.hiragana {
+    border-left: 3px solid #68AA7E;
+}
+
+.char-item.katakana {
+    border-left: 3px solid #6A8CAF;
+}
+
+.char-item.kanji {
+    border-left: 3px solid #AA6868;
+}
+
+.char-item.other {
+    border-left: 3px solid var(--secondary-text);
+}
+
+.char-item.hiragana-breakdown {
+    border-left: 3px solid #AA6868;
+    background-color: rgba(170, 104, 104, 0.1);
+}
+
+.char {
+    font-size: clamp(calc(0.43rem * var(--scale-factor)), calc(1.17vw * var(--scale-factor)), calc(0.67rem * var(--scale-factor)));
+    font-weight: bold;
+    margin-bottom: clamp(calc(0.03rem * var(--scale-factor)), calc(0.2vw * var(--scale-factor)), calc(0.1rem * var(--scale-factor)));
+    color: var(--text-color);
+    line-height: 1;
+}
+
+.readings {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(calc(0.2rem * var(--scale-factor)), calc(0.5vw * var(--scale-factor)), calc(0.3rem * var(--scale-factor)));
+}
+
+.reading {
+    font-size: clamp(calc(0.23rem * var(--scale-factor)), calc(0.6vw * var(--scale-factor)), calc(0.3rem * var(--scale-factor)));
+    padding: clamp(calc(0.03rem * var(--scale-factor)), calc(0.13vw * var(--scale-factor)), calc(0.08rem * var(--scale-factor)));
+    border-radius: calc(var(--border-radius) / 2);
+}
+
+.reading.ru {
+    background-color: rgba(104, 170, 126, 0.2);
+    color: var(--text-color);
+}
+
+.reading.en {
+    background-color: rgba(106, 140, 175, 0.2);
+    color: var(--text-color);
+}
+
+.reading.jp {
+    background-color: rgba(170, 104, 104, 0.2);
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+/* Стили для дерева кандзи */
+.kanji-tree {
+    background-color: var(--element-bg);
+    border: 2px solid #AA6868;
+    border-radius: var(--border-radius);
+    padding: clamp(calc(0.27rem * var(--scale-factor)), calc(0.67vw * var(--scale-factor)), calc(0.4rem * var(--scale-factor)));
+    text-align: center;
+    transition: all var(--transition-time);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(calc(0.27rem * var(--scale-factor)), calc(0.67vw * var(--scale-factor)), calc(0.33rem * var(--scale-factor)));
+}
+
+.kanji-tree:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.kanji-icon {
+    font-size: clamp(calc(0.83rem * var(--scale-factor)), calc(2.33vw * var(--scale-factor)), calc(1.33rem * var(--scale-factor)));
+    font-weight: bold;
+    color: #AA6868;
+    background: linear-gradient(135deg, rgba(170, 104, 104, 0.1), rgba(170, 104, 104, 0.2));
+    border: 2px solid rgba(170, 104, 104, 0.3);
+    border-radius: 50%;
+    width: clamp(calc(1.33rem * var(--scale-factor)), calc(3.33vw * var(--scale-factor)), calc(2rem * var(--scale-factor)));
+    height: clamp(calc(1.33rem * var(--scale-factor)), calc(3.33vw * var(--scale-factor)), calc(2rem * var(--scale-factor)));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: clamp(calc(0.17rem * var(--scale-factor)), calc(0.33vw * var(--scale-factor)), calc(0.27rem * var(--scale-factor)));
+}
+
+.hiragana-syllables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(calc(0.13rem * var(--scale-factor)), calc(0.33vw * var(--scale-factor)), calc(0.2rem * var(--scale-factor)));
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.syllable-item {
+    background-color: rgba(104, 170, 126, 0.1);
+    border: 1px solid rgba(104, 170, 126, 0.3);
+    border-radius: calc(var(--border-radius) / 1.5);
+    padding: clamp(calc(0.13rem * var(--scale-factor)), calc(0.33vw * var(--scale-factor)), calc(0.2rem * var(--scale-factor)));
+    min-width: clamp(calc(1rem * var(--scale-factor)), calc(2.67vw * var(--scale-factor)), calc(1.33rem * var(--scale-factor)));
+    transition: all var(--transition-time);
+}
+
+.syllable-item:hover {
+    background-color: rgba(104, 170, 126, 0.2);
+    border-color: #68AA7E;
+    transform: scale(1.05);
+}
+
+.syllable-char {
+    font-size: clamp(calc(0.5rem * var(--scale-factor)), calc(1.33vw * var(--scale-factor)), calc(0.67rem * var(--scale-factor)));
+    font-weight: bold;
+    margin-bottom: clamp(calc(0.1rem * var(--scale-factor)), calc(0.27vw * var(--scale-factor)), calc(0.17rem * var(--scale-factor)));
+    color: var(--text-color);
+}
+
+.syllable-readings {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(calc(0.03rem * var(--scale-factor)), calc(0.1vw * var(--scale-factor)), calc(0.07rem * var(--scale-factor)));
+}
+
+.syllable-readings .reading {
+    font-size: clamp(calc(0.23rem * var(--scale-factor)), calc(0.6vw * var(--scale-factor)), calc(0.3rem * var(--scale-factor)));
+    padding: clamp(calc(0.03rem * var(--scale-factor)), calc(0.1vw * var(--scale-factor)), calc(0.07rem * var(--scale-factor))) clamp(calc(0.07rem * var(--scale-factor)), calc(0.17vw * var(--scale-factor)), calc(0.1rem * var(--scale-factor)));
+    border-radius: calc(var(--border-radius) / 3);
+}
+
+/* Адаптивные размеры для больших экранов */
+@media (min-width: 1200px) {
+    .char-grid {
+        grid-template-columns: repeat(auto-fit, minmax(47px, max-content));
+        gap: clamp(0.13rem, 0.4vw, 0.2rem);
+    }
+    
+    .char-item {
+        min-height: clamp(33px, 4.7vw, 47px);
+    }
+}
+
+/* Средние экраны */
+@media (max-width: 900px) and (min-width: 601px) {
+    .char-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(30px, 100%), max-content));
+        gap: clamp(0.07rem, 0.27vw, 0.13rem);
+    }
+    
+    .char-item {
+        min-height: clamp(22px, 3.3vw, 30px);
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 600px) {
+    .char-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(22px, 100%), max-content));
+        gap: clamp(0.05rem, 0.2vw, 0.1rem);
+    }
+    
+    .char-item {
+        min-height: clamp(18px, 2.7vw, 25px);
+        padding: clamp(0.05rem, 0.27vw, 0.1rem);
+    }
+    
+    .char-item.kanji {
+        min-height: clamp(25px, 4vw, 33px);
+        max-height: clamp(30px, 5vw, 40px);
+        width: clamp(25px, 4vw, 33px);
+    }
+    
+    .char {
+        font-size: clamp(0.33rem, 1vw, 0.5rem);
+    }
+    
+    .input-row {
+        flex-direction: column;
+        gap: clamp(0.1rem, 0.33vw, 0.17rem);
+    }
+    
+    .paste-btn {
+        align-self: flex-start;
+        min-width: auto;
+        padding: clamp(0.13rem, 0.5vw, 0.2rem);
+        font-size: clamp(0.33rem, 0.83vw, 0.4rem);
+    }
+    
+    #japanese-input {
+        min-height: clamp(27px, 5vw, 40px);
+        font-size: clamp(0.33rem, 1vw, 0.43rem);
+        padding: clamp(0.17rem, 0.5vw, 0.27rem);
+    }
+    
+    .kanji-tree {
+        grid-column: 1 / -1;
+        max-width: 100%;
+        padding: clamp(0.17rem, 0.5vw, 0.27rem);
+        gap: clamp(0.17rem, 0.5vw, 0.23rem);
+    }
+    
+    .kanji-icon {
+        font-size: clamp(0.67rem, 2vw, 1rem);
+        width: clamp(1rem, 2.7vw, 1.5rem);
+        height: clamp(1rem, 2.7vw, 1.5rem);
+        margin-bottom: clamp(0.1rem, 0.27vw, 0.17rem);
+    }
+    
+    .hiragana-syllables {
+        gap: clamp(0.07rem, 0.2vw, 0.1rem);
+    }
+    
+    .syllable-item {
+        min-width: clamp(0.67rem, 1.67vw, 0.83rem);
+        padding: clamp(0.07rem, 0.27vw, 0.13rem);
+    }
+    
+    .syllable-char {
+        font-size: clamp(0.4rem, 1.17vw, 0.53rem);
+        margin-bottom: clamp(0.07rem, 0.2vw, 0.1rem);
     }
 }

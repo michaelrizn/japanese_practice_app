@@ -1,4 +1,4 @@
-const CACHE_NAME = 'japanese-practice-v1';
+const CACHE_NAME = 'japanese-practice-v3';
 const urlsToCache = [
   './',
   './index.html',
@@ -20,6 +20,11 @@ const urlsToCache = [
   './exercises/phrase_practice/data/hiragana_phrases_01.js',
   './exercises/phrase_practice/data/kanji_phrases_01.js',
   './exercises/phrase_practice/data/katakana_phrases_01.js',
+  './exercises/transliteration/transliteration.html',
+  './exercises/transliteration/app.js',
+  './exercises/transliteration/transliteration.js',
+  './exercises/transliteration/data/kanji_n5.js',
+  './exercises/transliteration/data/kanji_n4.js',
   './icons/icon-192.svg',
   './icons/icon-512.svg'
 ];

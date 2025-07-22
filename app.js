@@ -13,24 +13,24 @@ window.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // Инициализация размера шрифта
-  let currentFontSize = parseInt(localStorage.getItem(FONT_SIZE_KEY), 10);
-  if (!currentFontSize || isNaN(currentFontSize)) {
-    currentFontSize = 16;
+  // Инициализация масштаба
+  let currentScaleFactor = parseFloat(localStorage.getItem('scaleFactor'));
+  if (!currentScaleFactor || isNaN(currentScaleFactor)) {
+    currentScaleFactor = 2;
   }
-  document.documentElement.style.fontSize = currentFontSize + "px";
+  document.documentElement.style.setProperty('--scale-factor', currentScaleFactor);
 
-  // Обработчики для кнопок изменения шрифта
+  // Обработчики для кнопок изменения масштаба
   const decreaseBtn = document.getElementById("font-decrease");
   const increaseBtn = document.getElementById("font-increase");
   if (decreaseBtn) {
     decreaseBtn.addEventListener("click", () => {
-      changeFontSize(-1);
+      changeScaleFactor(-0.2);
     });
   }
   if (increaseBtn) {
     increaseBtn.addEventListener("click", () => {
-      changeFontSize(+1);
+      changeScaleFactor(+0.2);
     });
   }
   
@@ -39,20 +39,19 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * Изменяет размер шрифта на delta пунктов
- * @param {number} delta - Величина изменения размера шрифта
+ * Изменяет масштаб на delta
+ * @param {number} delta - Величина изменения масштаба
  */
-function changeFontSize(delta) {
-  let currentSize = parseInt(
-    window.getComputedStyle(document.documentElement).fontSize,
-    10,
-  );
-  let newSize = currentSize + delta;
+function changeScaleFactor(delta) {
+  let currentScale = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue('--scale-factor')
+  ) || 2;
+  let newScale = currentScale + delta;
   
-  // Ограничения на размер шрифта
-  if (newSize < 12) newSize = 12;
-  if (newSize > 32) newSize = 32;
+  // Ограничения на масштаб
+  if (newScale < 0.5) newScale = 0.5;
+  if (newScale > 4) newScale = 4;
 
-  document.documentElement.style.fontSize = newSize + "px";
-  localStorage.setItem(FONT_SIZE_KEY, String(newSize));
+  document.documentElement.style.setProperty('--scale-factor', newScale);
+  localStorage.setItem('scaleFactor', String(newScale));
 }
