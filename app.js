@@ -2,6 +2,17 @@
 const FONT_SIZE_KEY = "globalFontSize";
 
 window.addEventListener("DOMContentLoaded", () => {
+  // Регистрация Service Worker для PWA
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+      .then(registration => {
+        console.log('SW registered: ', registration);
+      })
+      .catch(registrationError => {
+        console.log('SW registration failed: ', registrationError);
+      });
+  }
+
   // Инициализация размера шрифта
   let currentFontSize = parseInt(localStorage.getItem(FONT_SIZE_KEY), 10);
   if (!currentFontSize || isNaN(currentFontSize)) {
