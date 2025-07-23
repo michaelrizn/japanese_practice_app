@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Japanese Transliteration</title>
 <link rel="stylesheet" href="../../style.css">
-<script src="data/kanji_n5.js"></script>
-<script src="data/kanji_n4.js"></script>
-<script src="transliteration.js"></script>
-<script src="app.js" defer></script>
+<script src="data/kanji_n5.js?v=2"></script>
+<script src="data/kanji_n4.js?v=2"></script>
+<script src="transliteration.js?v=2"></script>
+<script src="app.js?v=2" defer></script>
 </head>
 <body>
 <header class="top-menu">
@@ -28,7 +28,8 @@
 <div class="input-section">
 <div class="input-row">
 <textarea id="japanese-input" placeholder="これは鉛筆です"></textarea>
-<button id="paste-button" class="paste-btn">📋</button>
+<button id="clear-button" class="clear-btn">✕</button>
+<button id="paste-button" class="paste-btn">○</button>
 </div>
 </div>
 <div id="transliteration-result" class="result-section"></div>

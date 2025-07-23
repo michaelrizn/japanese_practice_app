@@ -1,8 +1,9 @@
-const CACHE_NAME = 'japanese-practice-v3';
+const CACHE_NAME = 'japanese-practice-v5';
 const urlsToCache = [
   './',
   './index.html',
   './app.js',
+  './pwa-updater.js',
   './common.js',
   './style.css',
   './manifest.json',
@@ -30,6 +31,7 @@ const urlsToCache = [
 ];
 
 self.addEventListener('install', event => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
@@ -52,6 +54,7 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener('activate', event => {
+  self.clients.claim();
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
@@ -63,4 +66,10 @@ self.addEventListener('activate', event => {
       );
     })
   );
+});
+
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });

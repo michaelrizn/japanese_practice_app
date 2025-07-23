@@ -1,4 +1,4 @@
-const kanjiN5 = {
+var kanjiN5 = {
   '人': { ru: 'хито/дзин', en: 'hito/jin', hiragana: 'ひと/じん' },
   '日': { ru: 'хи/ни', en: 'hi/ni', hiragana: 'ひ/に' },
   '本': { ru: 'хон/мото', en: 'hon/moto', hiragana: 'ほん/もと' },
@@ -309,5 +309,5 @@ const kanjiN5 = {
 };
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = kanjiN5;
+  
 }

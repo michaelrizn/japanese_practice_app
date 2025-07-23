@@ -2,16 +2,8 @@
 const FONT_SIZE_KEY = "globalFontSize";
 
 window.addEventListener("DOMContentLoaded", () => {
-  // Регистрация Service Worker для PWA
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js')
-      .then(registration => {
-        console.log('SW registered: ', registration);
-      })
-      .catch(registrationError => {
-        console.log('SW registration failed: ', registrationError);
-      });
-  }
+  const pwaUpdater = new PWAUpdater();
+  pwaUpdater.init();
 
   // Инициализация масштаба
   let currentScaleFactor = parseFloat(localStorage.getItem('scaleFactor'));
@@ -36,6 +28,9 @@ window.addEventListener("DOMContentLoaded", () => {
   
   // Добавляем плавность для всех переходов
   document.body.style.transition = "all 0.3s ease";
+  
+  // Инициализация автоматического изменения высоты textarea
+  initAutoResizeTextarea();
 });
 
 /**
@@ -54,4 +49,51 @@ function changeScaleFactor(delta) {
 
   document.documentElement.style.setProperty('--scale-factor', newScale);
   localStorage.setItem('scaleFactor', String(newScale));
+}
+
+/**
+ * Инициализирует автоматическое изменение высоты textarea
+ */
+function initAutoResizeTextarea() {
+  const textarea = document.getElementById('japanese-input');
+  if (!textarea) return;
+  
+  // Функция для автоматического изменения высоты
+  function autoResize() {
+    // Сбрасываем высоту для правильного расчета scrollHeight
+    textarea.style.height = 'auto';
+    
+    // Устанавливаем новую высоту на основе содержимого
+    const newHeight = Math.max(textarea.scrollHeight, getMinHeight());
+    textarea.style.height = newHeight + 'px';
+  }
+  
+  // Функция для получения минимальной высоты в зависимости от размера экрана
+  function getMinHeight() {
+    const isMobile = window.innerWidth <= 600;
+    if (isMobile) {
+      // Для мобильных устройств
+      const vw = window.innerWidth / 100;
+      return Math.max(35, Math.min(8 * vw, 45));
+    } else {
+      // Для обычных экранов
+      const vw = window.innerWidth / 100;
+      return Math.max(35.2, Math.min(4.34 * vw, 40.64));
+    }
+  }
+  
+  // Добавляем обработчики событий
+  textarea.addEventListener('input', autoResize);
+  textarea.addEventListener('paste', () => {
+    // Небольшая задержка для обработки вставленного текста
+    setTimeout(autoResize, 10);
+  });
+  
+  // Обработчик изменения размера окна
+  window.addEventListener('resize', () => {
+    autoResize();
+  });
+  
+  // Инициализируем высоту при загрузке
+  autoResize();
 }

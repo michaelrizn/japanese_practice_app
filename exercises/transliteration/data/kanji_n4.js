@@ -1,4 +1,4 @@
-const kanjiN4 = {
+var kanjiN4 = {
   '理': { ru: 'ри', en: 'ri', hiragana: 'り' },
   '解': { ru: 'кай/то', en: 'kai/to', hiragana: 'かй/と' },
   '説': { ru: 'сэцу', en: 'setsu', hiragana: 'せつ' },
@@ -28,7 +28,6 @@ const kanjiN4 = {
   '店': { ru: 'тэн/мисэ', en: 'ten/mise', hiragana: 'てん/みせ' },
   '品': { ru: 'хин/сина', en: 'hin/shina', hiragana: 'ひん/しな' },
   '料': { ru: 'рё', en: 'ryo', hiragana: 'りょ' },
-  '理': { ru: 'ри', en: 'ri', hiragana: 'り' },
   '科': { ru: 'ка', en: 'ka', hiragana: 'か' },
   '医': { ru: 'и', en: 'i', hiragana: 'い' },
   '病': { ru: 'бё/ямай', en: 'byo/yamai', hiragana: 'びょ/やまい' },
@@ -40,7 +39,6 @@ const kanjiN4 = {
   '風': { ru: 'фу/кадзэ', en: 'fu/kaze', hiragana: 'ふ/かぜ' },
   '邪': { ru: 'дзя', en: 'ja', hiragana: 'じゃ' },
   '運': { ru: 'ун/хако', en: 'un/hako', hiragana: 'うん/はこ' },
-  '動': { ru: 'до/уго', en: 'do/ugo', hiragana: 'ど/うご' },
   '歩': { ru: 'хо/ару', en: 'ho/aru', hiragana: 'ほ/ある' },
   '走': { ru: 'со/хаси', en: 'so/hashi', hiragana: 'そ/はし' },
   '泳': { ru: 'эй/оё', en: 'ei/oyo', hiragana: 'えй/およ' },
@@ -82,8 +80,7 @@ const kanjiN4 = {
   '野': { ru: 'я/но', en: 'ya/no', hiragana: 'や/の' },
   '菜': { ru: 'сай/на', en: 'sai/na', hiragana: 'さй/な' },
   '果': { ru: 'ка', en: 'ka', hiragana: 'か' },
-  '物': { ru: 'буцу/моно', en: 'butsu/mono', hiragana: 'ぶつ/もの' },
-  '米': { ru: 'бэй/комэ', en: 'bei/kome', hiragana: 'べй/こめ' },
+  '米': { ru: 'бэй/комэ', en: 'bei/kome', hiragana: 'べй/こме' },
   '麦': { ru: 'баку/муги', en: 'baku/mugi', hiragana: 'ばく/むぎ' },
   '豆': { ru: 'то/мамэ', en: 'to/mame', hiragana: 'と/まめ' },
   '卵': { ru: 'ран/тамаго', en: 'ran/tamago', hiragana: 'らん/たまご' },
@@ -105,7 +102,6 @@ const kanjiN4 = {
   '竹': { ru: 'тику/такэ', en: 'chiku/take', hiragana: 'ちく/たけ' },
   '石': { ru: 'сэки/иси', en: 'seki/ishi', hiragana: 'せき/いし' },
   '岩': { ru: 'ган/ива', en: 'gan/iwa', hiragana: 'がん/いわ' },
-  '砂': { ru: 'са/суна', en: 'sa/suna', hiragana: 'さ/すな' },
   '雲': { ru: 'ун/кумо', en: 'un/kumo', hiragana: 'うん/くも' },
   '雨': { ru: 'у/амэ', en: 'u/ame', hiragana: 'う/あめ' },
   '雪': { ru: 'сэцу/юки', en: 'setsu/yuki', hiragana: 'せつ/ゆき' },
@@ -121,7 +117,6 @@ const kanjiN4 = {
   '空': { ru: 'ку/сора', en: 'ku/sora', hiragana: 'く/そら' },
   '港': { ru: 'ко/минато', en: 'ko/minato', hiragana: 'こ/みなと' },
   '船': { ru: 'сэн/фунэ', en: 'sen/fune', hiragana: 'せん/ふね' },
-  '飛': { ru: 'хи/то', en: 'hi/to', hiragana: 'ひ/と' },
   '機': { ru: 'ки', en: 'ki', hiragana: 'き' },
   '旅': { ru: 'рё/таби', en: 'ryo/tabi', hiragana: 'りょ/たび' },
   '宿': { ru: 'сюку/ядо', en: 'shuku/yado', hiragana: 'しゅく/やど' },
@@ -161,7 +156,6 @@ const kanjiN4 = {
   '別': { ru: 'бэцу/вакэ', en: 'betsu/wake', hiragana: 'べつ/わけ' },
   '他': { ru: 'та/хока', en: 'ta/hoka', hiragana: 'た/ほか' },
   '各': { ru: 'каку/оно', en: 'kaku/ono', hiragana: 'かく/おの' },
-  '全': { ru: 'дзэн/субэ', en: 'zen/sube', hiragana: 'ぜん/すべ' },
   '部': { ru: 'бу', en: 'bu', hiragana: 'ぶ' },
   '半': { ru: 'хан/нака', en: 'han/naka', hiragana: 'はん/なか' },
   '両': { ru: 'рё', en: 'ryo', hiragana: 'りょ' },
@@ -455,7 +449,3 @@ const kanjiN4 = {
   '麗': { ru: 'рэй/урува', en: 'rei/uruwa', hiragana: 'れい/うるわ' },
   '鼻': { ru: 'би/хана', en: 'bi/hana', hiragana: 'び/はな' }
 };
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = kanjiN4;
-}

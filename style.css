@@ -276,12 +276,12 @@ main {
     display: flex;
     gap: clamp(0.5rem, 1.5vw, 0.8rem);
     margin-bottom: clamp(0.3rem, 1.5vw, 0.6rem);
-    align-items: stretch;
+    align-items: flex-start;
 }
 
 #japanese-input {
     flex: 1;
-    padding: clamp(0.5rem, 2vw, 0.8rem);
+    padding: clamp(0.2rem, 0.67vw, 0.27rem);
     background-color: var(--element-bg);
     color: var(--text-color);
     border: 1px solid var(--border-color);
@@ -289,10 +289,9 @@ main {
     font-size: clamp(1rem, 3vw, 1.2rem);
     font-family: sans-serif;
     resize: none;
-    min-height: 1em;
+    height: clamp(2.2rem, 4.34vw, 2.54rem);
     transition: all var(--transition-time);
-    overflow-y: hidden;
-    height: auto;
+    overflow-y: auto;
     line-height: 1.4;
     box-sizing: border-box;
 }
@@ -303,7 +302,7 @@ main {
     background-color: var(--hover-bg);
 }
 
-.paste-btn {
+.paste-btn, .clear-btn {
     background-color: var(--element-bg);
     color: var(--text-color);
     border: 1px solid var(--border-color);
@@ -312,17 +311,27 @@ main {
     cursor: pointer;
     font-size: clamp(0.4rem, 1vw, 0.5rem);
     transition: all var(--transition-time);
-    min-width: 20px;
+    min-width: clamp(2.2rem, 4.34vw, 2.54rem);
+    height: clamp(2.2rem, 4.34vw, 2.54rem);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
 }
 
-.paste-btn:hover {
+.paste-btn:hover, .clear-btn:hover {
     background-color: var(--hover-bg);
     border-color: var(--accent-color);
     transform: scale(1.05);
+}
+
+.clear-btn {
+    color: var(--error-color);
+}
+
+.clear-btn:hover {
+    background-color: rgba(170, 104, 104, 0.1);
+    border-color: var(--error-color);
 }
 
 .input-buttons {
@@ -337,12 +346,12 @@ main {
 }
 
 .char-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(calc(24px * var(--scale-factor)), max-content));
+    display: flex;
+    flex-wrap: wrap;
     gap: clamp(calc(0.07rem * var(--scale-factor)), calc(0.3vw * var(--scale-factor)), calc(0.13rem * var(--scale-factor)));
     margin-top: clamp(0.1rem, 0.5vw, 0.2rem);
     width: 100%;
-    justify-content: start;
+    align-items: flex-start;
 }
 
 .char-item {
@@ -359,6 +368,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: clamp(calc(0.1rem * var(--scale-factor)), calc(0.25vw * var(--scale-factor)), calc(0.15rem * var(--scale-factor))) 1px clamp(calc(0.1rem * var(--scale-factor)), calc(0.25vw * var(--scale-factor)), calc(0.15rem * var(--scale-factor))) 0;
 }
 
 .char-item.kanji {
@@ -373,15 +383,15 @@ main {
 }
 
 .char-item.hiragana {
-    border-left: 3px solid #68AA7E;
+    border: 2px solid #A8D5A8;
 }
 
 .char-item.katakana {
-    border-left: 3px solid #6A8CAF;
+    border: 2px solid #A8C8E8;
 }
 
 .char-item.kanji {
-    border-left: 3px solid #AA6868;
+    border-left: 3px solid #E8B8B8;
 }
 
 .char-item.other {
@@ -389,8 +399,8 @@ main {
 }
 
 .char-item.hiragana-breakdown {
-    border-left: 3px solid #AA6868;
-    background-color: rgba(170, 104, 104, 0.1);
+    border-left: 3px solid #E8B8B8;
+    background-color: rgba(232, 184, 184, 0.1);
 }
 
 .char {
@@ -432,7 +442,7 @@ main {
 /* Стили для дерева кандзи */
 .kanji-tree {
     background-color: var(--element-bg);
-    border: 2px solid #AA6868;
+    border: 2px solid #E8B8B8;
     border-radius: var(--border-radius);
     padding: clamp(calc(0.27rem * var(--scale-factor)), calc(0.67vw * var(--scale-factor)), calc(0.4rem * var(--scale-factor)));
     text-align: center;
@@ -441,6 +451,10 @@ main {
     flex-direction: column;
     align-items: center;
     gap: clamp(calc(0.27rem * var(--scale-factor)), calc(0.67vw * var(--scale-factor)), calc(0.33rem * var(--scale-factor)));
+    width: fit-content;
+    max-width: none;
+    margin: clamp(calc(0.2rem * var(--scale-factor)), calc(0.5vw * var(--scale-factor)), calc(0.3rem * var(--scale-factor)));
+    flex-shrink: 0;
 }
 
 .kanji-tree:hover {
@@ -451,14 +465,14 @@ main {
 }
 
 .kanji-icon {
-    font-size: clamp(calc(0.83rem * var(--scale-factor)), calc(2.33vw * var(--scale-factor)), calc(1.33rem * var(--scale-factor)));
+    font-size: clamp(calc(1.66rem * var(--scale-factor)), calc(4.66vw * var(--scale-factor)), calc(2.66rem * var(--scale-factor)));
     font-weight: bold;
-    color: #AA6868;
-    background: linear-gradient(135deg, rgba(170, 104, 104, 0.1), rgba(170, 104, 104, 0.2));
-    border: 2px solid rgba(170, 104, 104, 0.3);
+    color: #E8B8B8;
+    background: linear-gradient(135deg, rgba(232, 184, 184, 0.1), rgba(232, 184, 184, 0.2));
+    border: 2px solid rgba(232, 184, 184, 0.3);
     border-radius: 50%;
-    width: clamp(calc(1.33rem * var(--scale-factor)), calc(3.33vw * var(--scale-factor)), calc(2rem * var(--scale-factor)));
-    height: clamp(calc(1.33rem * var(--scale-factor)), calc(3.33vw * var(--scale-factor)), calc(2rem * var(--scale-factor)));
+    width: clamp(calc(2.66rem * var(--scale-factor)), calc(6.66vw * var(--scale-factor)), calc(4rem * var(--scale-factor)));
+    height: clamp(calc(2.66rem * var(--scale-factor)), calc(6.66vw * var(--scale-factor)), calc(4rem * var(--scale-factor)));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -467,15 +481,15 @@ main {
 
 .hiragana-syllables {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: clamp(calc(0.13rem * var(--scale-factor)), calc(0.33vw * var(--scale-factor)), calc(0.2rem * var(--scale-factor)));
     justify-content: center;
     align-items: flex-start;
 }
 
 .syllable-item {
-    background-color: rgba(104, 170, 126, 0.1);
-    border: 1px solid rgba(104, 170, 126, 0.3);
+    background-color: rgba(168, 213, 168, 0.1);
+    border: 1px solid rgba(168, 213, 168, 0.3);
     border-radius: calc(var(--border-radius) / 1.5);
     padding: clamp(calc(0.13rem * var(--scale-factor)), calc(0.33vw * var(--scale-factor)), calc(0.2rem * var(--scale-factor)));
     min-width: clamp(calc(1rem * var(--scale-factor)), calc(2.67vw * var(--scale-factor)), calc(1.33rem * var(--scale-factor)));
@@ -483,13 +497,13 @@ main {
 }
 
 .syllable-item:hover {
-    background-color: rgba(104, 170, 126, 0.2);
-    border-color: #68AA7E;
+    background-color: rgba(168, 213, 168, 0.2);
+    border-color: #A8D5A8;
     transform: scale(1.05);
 }
 
 .syllable-char {
-    font-size: clamp(calc(0.5rem * var(--scale-factor)), calc(1.33vw * var(--scale-factor)), calc(0.67rem * var(--scale-factor)));
+    font-size: clamp(calc(1rem * var(--scale-factor)), calc(2.66vw * var(--scale-factor)), calc(1.34rem * var(--scale-factor)));
     font-weight: bold;
     margin-bottom: clamp(calc(0.1rem * var(--scale-factor)), calc(0.27vw * var(--scale-factor)), calc(0.17rem * var(--scale-factor)));
     color: var(--text-color);
@@ -510,92 +524,108 @@ main {
 /* Адаптивные размеры для больших экранов */
 @media (min-width: 1200px) {
     .char-grid {
-        grid-template-columns: repeat(auto-fit, minmax(47px, max-content));
         gap: clamp(0.13rem, 0.4vw, 0.2rem);
     }
     
     .char-item {
         min-height: clamp(33px, 4.7vw, 47px);
+        margin: clamp(0.15rem, 0.4vw, 0.25rem) 1px clamp(0.15rem, 0.4vw, 0.25rem) 0;
     }
 }
 
 /* Средние экраны */
 @media (max-width: 900px) and (min-width: 601px) {
     .char-grid {
-        grid-template-columns: repeat(auto-fit, minmax(min(30px, 100%), max-content));
         gap: clamp(0.07rem, 0.27vw, 0.13rem);
     }
     
     .char-item {
         min-height: clamp(22px, 3.3vw, 30px);
+        margin: clamp(0.1rem, 0.3vw, 0.2rem) 1px clamp(0.1rem, 0.3vw, 0.2rem) 0;
     }
 }
 
 /* Мобильные устройства */
 @media (max-width: 600px) {
     .char-grid {
-        grid-template-columns: repeat(auto-fit, minmax(min(22px, 100%), max-content));
-        gap: clamp(0.05rem, 0.2vw, 0.1rem);
+        gap: clamp(0.2rem, 0.5vw, 0.3rem);
     }
     
     .char-item {
-        min-height: clamp(18px, 2.7vw, 25px);
-        padding: clamp(0.05rem, 0.27vw, 0.1rem);
+        min-height: clamp(35px, 5vw, 45px);
+        padding: clamp(0.2rem, 0.5vw, 0.3rem);
+        width: clamp(35px, 5vw, 45px);
+        margin: clamp(0.2rem, 0.5vw, 0.3rem) 1px clamp(0.2rem, 0.5vw, 0.3rem) 0;
     }
     
     .char-item.kanji {
-        min-height: clamp(25px, 4vw, 33px);
-        max-height: clamp(30px, 5vw, 40px);
-        width: clamp(25px, 4vw, 33px);
+        min-height: clamp(45px, 6vw, 55px);
+        max-height: clamp(50px, 7vw, 60px);
+        width: clamp(45px, 6vw, 55px);
     }
     
     .char {
-        font-size: clamp(0.33rem, 1vw, 0.5rem);
+        font-size: clamp(0.8rem, 2vw, 1rem);
     }
     
     .input-row {
-        flex-direction: column;
-        gap: clamp(0.1rem, 0.33vw, 0.17rem);
+        flex-direction: row;
+        gap: clamp(0.3rem, 1vw, 0.5rem);
+        align-items: flex-start;
     }
     
-    .paste-btn {
-        align-self: flex-start;
-        min-width: auto;
-        padding: clamp(0.13rem, 0.5vw, 0.2rem);
-        font-size: clamp(0.33rem, 0.83vw, 0.4rem);
+    .paste-btn, .clear-btn {
+        flex-shrink: 0;
+        min-width: clamp(35px, 8vw, 45px);
+        height: clamp(35px, 8vw, 45px);
+        padding: clamp(0.2rem, 0.5vw, 0.3rem);
+        font-size: clamp(0.6rem, 1.5vw, 0.8rem);
     }
     
     #japanese-input {
-        min-height: clamp(27px, 5vw, 40px);
+        height: clamp(35px, 8vw, 45px);
         font-size: max(16px, clamp(1rem, 3vw, 1.2rem));
-        padding: clamp(0.17rem, 0.5vw, 0.27rem);
+        padding: clamp(0.2rem, 0.5vw, 0.27rem);
+        overflow-y: auto;
     }
     
     .kanji-tree {
-        grid-column: 1 / -1;
-        max-width: 100%;
-        padding: clamp(0.17rem, 0.5vw, 0.27rem);
-        gap: clamp(0.17rem, 0.5vw, 0.23rem);
+        display: flex;
+        width: fit-content;
+        max-width: none;
+        padding: clamp(0.4rem, 1vw, 0.6rem);
+        gap: clamp(0.3rem, 0.8vw, 0.5rem);
+        margin: clamp(0.3rem, 0.8vw, 0.5rem);
     }
     
     .kanji-icon {
-        font-size: clamp(0.67rem, 2vw, 1rem);
-        width: clamp(1rem, 2.7vw, 1.5rem);
-        height: clamp(1rem, 2.7vw, 1.5rem);
-        margin-bottom: clamp(0.1rem, 0.27vw, 0.17rem);
+        font-size: clamp(2rem, 5vw, 2.6rem);
+        width: clamp(3rem, 7vw, 4rem);
+        height: clamp(3rem, 7vw, 4rem);
+        margin-bottom: clamp(0.2rem, 0.5vw, 0.3rem);
     }
     
     .hiragana-syllables {
-        gap: clamp(0.07rem, 0.2vw, 0.1rem);
+        flex-wrap: nowrap;
+        gap: clamp(0.15rem, 0.4vw, 0.2rem);
     }
     
     .syllable-item {
-        min-width: clamp(0.67rem, 1.67vw, 0.83rem);
-        padding: clamp(0.07rem, 0.27vw, 0.13rem);
+        min-width: clamp(1.2rem, 2.5vw, 1.5rem);
+        padding: clamp(0.15rem, 0.4vw, 0.2rem);
     }
     
     .syllable-char {
-        font-size: clamp(0.4rem, 1.17vw, 0.53rem);
-        margin-bottom: clamp(0.07rem, 0.2vw, 0.1rem);
+        font-size: clamp(1.4rem, 3.6vw, 1.8rem);
+        margin-bottom: clamp(0.1rem, 0.3vw, 0.15rem);
+    }
+    
+    .reading {
+        font-size: clamp(0.5rem, 1.2vw, 0.7rem);
+        padding: clamp(0.1rem, 0.3vw, 0.15rem);
+    }
+    
+    .readings {
+        gap: clamp(0.15rem, 0.4vw, 0.2rem);
     }
 }

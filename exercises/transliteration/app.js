@@ -3,33 +3,33 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const japaneseInput = document.getElementById('japanese-input');
   const pasteButton = document.getElementById('paste-button');
+  const clearButton = document.getElementById('clear-button');
 
   const resultContainer = document.getElementById('transliteration-result');
 
   function autoResizeTextarea() {
-    japaneseInput.style.height = 'auto';
+    // Получаем базовую высоту в зависимости от размера экрана (такую же как у кнопок)
+    function getBaseHeight() {
+      const isMobile = window.innerWidth <= 600;
+      if (isMobile) {
+        const vw = window.innerWidth / 100;
+        return Math.max(35, Math.min(8 * vw, 45));
+      } else {
+        const vw = window.innerWidth / 100;
+        return Math.max(35.2, Math.min(4.34 * vw, 40.64));
+      }
+    }
     
-    const computedStyle = window.getComputedStyle(japaneseInput);
-    const fontSize = parseFloat(computedStyle.fontSize);
-    const lineHeight = parseFloat(computedStyle.lineHeight) || fontSize * 1.4;
-    const paddingTop = parseFloat(computedStyle.paddingTop);
-    const paddingBottom = parseFloat(computedStyle.paddingBottom);
-    const borderTop = parseFloat(computedStyle.borderTopWidth);
-    const borderBottom = parseFloat(computedStyle.borderBottomWidth);
+    const baseHeight = getBaseHeight();
     
-    const minHeight = fontSize * 1.5;
-    const maxHeight = window.innerHeight * 0.6;
+    // Временно сбрасываем высоту для правильного расчета scrollHeight
+    japaneseInput.style.height = baseHeight + 'px';
     
-    const scrollHeight = japaneseInput.scrollHeight;
-    const contentHeight = scrollHeight - paddingTop - paddingBottom;
-    const newHeight = Math.max(minHeight, Math.min(maxHeight, scrollHeight));
-    
-    japaneseInput.style.height = newHeight + 'px';
-    
-    if (scrollHeight > maxHeight) {
-      japaneseInput.style.overflowY = 'auto';
+    // Если содержимое больше базовой высоты, растягиваем
+    if (japaneseInput.scrollHeight > baseHeight) {
+      japaneseInput.style.height = japaneseInput.scrollHeight + 'px';
     } else {
-      japaneseInput.style.overflowY = 'hidden';
+      japaneseInput.style.height = baseHeight + 'px';
     }
   }
 
@@ -144,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (navigator.clipboard && navigator.clipboard.readText) {
         const text = await navigator.clipboard.readText();
         japaneseInput.value = text;
-        autoResizeTextarea();
         processText();
       } else {
         alert('Функция вставки из буфера обмена не поддерживается в этом браузере');
@@ -162,27 +161,26 @@ document.addEventListener('DOMContentLoaded', () => {
     processText();
   });
   
-  japaneseInput.addEventListener('paste', () => {
-    setTimeout(autoResizeTextarea, 0);
-  });
-  
-  japaneseInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      setTimeout(autoResizeTextarea, 0);
-    }
-  });
-  
-  window.addEventListener('resize', autoResizeTextarea);
-  
-  const observer = new ResizeObserver(() => {
-    autoResizeTextarea();
-  });
-  observer.observe(japaneseInput);
-  
   if (pasteButton) {
-    pasteButton.addEventListener('click', pasteFromClipboard);
+    pasteButton.addEventListener('click', () => {
+      pasteFromClipboard();
+      // Небольшая задержка для обработки вставленного текста
+      setTimeout(autoResizeTextarea, 10);
+    });
+  }
+  
+  if (clearButton) {
+    clearButton.addEventListener('click', () => {
+      japaneseInput.value = '';
+      autoResizeTextarea();
+      processText();
+      japaneseInput.focus();
+    });
   }
 
+  // Обработчик изменения размера окна
+  window.addEventListener('resize', autoResizeTextarea);
+  
   // Инициализация
   autoResizeTextarea();
   japaneseInput.focus();
@@ -195,6 +193,11 @@ function initFontSize() {
   
   const decreaseBtn = document.getElementById('font-decrease');
   const increaseBtn = document.getElementById('font-increase');
+  
+  if (!decreaseBtn || !increaseBtn) {
+    console.warn('Font size buttons not found');
+    return;
+  }
   
   function changeFontSize(delta) {
     let currentSize = parseInt(window.getComputedStyle(document.documentElement).fontSize, 10);
