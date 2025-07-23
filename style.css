@@ -567,7 +567,7 @@ main {
     
     #japanese-input {
         min-height: clamp(27px, 5vw, 40px);
-        font-size: clamp(0.33rem, 1vw, 0.43rem);
+        font-size: max(16px, clamp(1rem, 3vw, 1.2rem));
         padding: clamp(0.17rem, 0.5vw, 0.27rem);
     }
     
