@@ -11,6 +11,7 @@ class PWAUpdater {
       return;
     }
 
+    this.showPostUpdateToastIfNeeded();
     this.registerServiceWorker();
     this.setupEventListeners();
   }
@@ -50,6 +51,7 @@ class PWAUpdater {
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (this.refreshing) return;
       this.refreshing = true;
+      try { sessionStorage.setItem('pwaUpdated', '1'); } catch (e) {}
       window.location.reload();
     });
 
@@ -169,6 +171,50 @@ class PWAUpdater {
     if (navigator.serviceWorker.controller) {
       navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
     }
+  }
+
+  showPostUpdateToastIfNeeded() {
+    let flag = null;
+    try { flag = sessionStorage.getItem('pwaUpdated'); } catch (e) {}
+    if (flag === '1') {
+      try { sessionStorage.removeItem('pwaUpdated'); } catch (e) {}
+      const toast = this.createUpdatedToastElement();
+      document.body.appendChild(toast);
+      requestAnimationFrame(() => {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateY(0)';
+      });
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+          if (toast.parentNode) toast.parentNode.removeChild(toast);
+        }, 200);
+      }, 2500);
+    }
+  }
+
+  createUpdatedToastElement() {
+    const toast = document.createElement('div');
+    toast.className = 'pwa-updated-toast';
+    toast.textContent = 'Приложение обновилось';
+    toast.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #4CAF50;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 10000;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity .2s ease, transform .2s ease;
+    `;
+    return toast;
   }
 }
 
