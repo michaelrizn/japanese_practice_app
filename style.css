@@ -57,7 +57,7 @@ body {
     padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.3rem, 1.5vw, 0.5rem);
     border-radius: var(--border-radius);
     transition: all var(--transition-time);
-    font-size: clamp(0.8rem, 2vw, 1rem);
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 .menu-btn {
     background-color: transparent;
@@ -92,7 +92,7 @@ main {
     display: block;
     transition: all var(--transition-time);
     text-align: center;
-    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-size: clamp(1.5rem, 4.5vw, 1.8rem);
 }
 .exercise-list a:hover {
     background-color: var(--hover-bg);
@@ -107,7 +107,7 @@ main {
     gap: clamp(1rem, 3vw, 2rem);
 }
 #main-symbol {
-    font-size: clamp(3rem, 12vw, 6rem);
+    font-size: clamp(4.5rem, 18vw, 9rem);
     margin: 0;
     color: var(--text-color);
 }
@@ -119,7 +119,7 @@ main {
     max-width: min(90vw, 400px);
 }
 .option {
-    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-size: clamp(1.5rem, 4.5vw, 1.8rem);
     padding: clamp(0.5rem, 2vw, 0.8rem);
     background-color: var(--element-bg);
     color: var(--text-color);
@@ -136,7 +136,7 @@ main {
 
 .feedback {
     margin: 0;
-    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    font-size: clamp(1.8rem, 6vw, 2.25rem);
     color: var(--text-color);
 }
 .feedback.correct { color: var(--success-color); }
@@ -152,11 +152,11 @@ main {
 .text-content {
     flex: 1;
     text-align: center;
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    font-size: clamp(1.35rem, 3.75vw, 1.65rem);
 }
 .toggler {
     margin-left: clamp(5px, 2vw, 10px);
-    font-size: clamp(0.8rem, 2vw, 1rem);
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 .words-list {
     display: flex;
@@ -175,7 +175,7 @@ main {
     margin-top: clamp(0.5rem, 2vw, 1rem);
     transition: all var(--transition-time);
     text-align: center;
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    font-size: clamp(1.35rem, 3.75vw, 1.65rem);
 }
 .exercise-link:hover {
     background-color: var(--hover-bg);
@@ -404,7 +404,7 @@ main {
 }
 
 .char {
-    font-size: clamp(calc(0.43rem * var(--scale-factor)), calc(1.17vw * var(--scale-factor)), calc(0.67rem * var(--scale-factor)));
+    font-size: clamp(calc(0.645rem * var(--scale-factor)), calc(1.755vw * var(--scale-factor)), calc(1.005rem * var(--scale-factor)));
     font-weight: bold;
     margin-bottom: clamp(calc(0.03rem * var(--scale-factor)), calc(0.2vw * var(--scale-factor)), calc(0.1rem * var(--scale-factor)));
     color: var(--text-color);
@@ -418,7 +418,7 @@ main {
 }
 
 .reading {
-    font-size: clamp(calc(0.23rem * var(--scale-factor)), calc(0.6vw * var(--scale-factor)), calc(0.3rem * var(--scale-factor)));
+    font-size: clamp(calc(0.345rem * var(--scale-factor)), calc(0.9vw * var(--scale-factor)), calc(0.45rem * var(--scale-factor)));
     padding: clamp(calc(0.03rem * var(--scale-factor)), calc(0.13vw * var(--scale-factor)), calc(0.08rem * var(--scale-factor)));
     border-radius: calc(var(--border-radius) / 2);
 }
@@ -503,7 +503,7 @@ main {
 }
 
 .syllable-char {
-    font-size: clamp(calc(1rem * var(--scale-factor)), calc(2.66vw * var(--scale-factor)), calc(1.34rem * var(--scale-factor)));
+    font-size: clamp(calc(1.5rem * var(--scale-factor)), calc(3.99vw * var(--scale-factor)), calc(2.01rem * var(--scale-factor)));
     font-weight: bold;
     margin-bottom: clamp(calc(0.1rem * var(--scale-factor)), calc(0.27vw * var(--scale-factor)), calc(0.17rem * var(--scale-factor)));
     color: var(--text-color);
@@ -516,7 +516,7 @@ main {
 }
 
 .syllable-readings .reading {
-    font-size: clamp(calc(0.23rem * var(--scale-factor)), calc(0.6vw * var(--scale-factor)), calc(0.3rem * var(--scale-factor)));
+    font-size: clamp(calc(0.345rem * var(--scale-factor)), calc(0.9vw * var(--scale-factor)), calc(0.45rem * var(--scale-factor)));
     padding: clamp(calc(0.03rem * var(--scale-factor)), calc(0.1vw * var(--scale-factor)), calc(0.07rem * var(--scale-factor))) clamp(calc(0.07rem * var(--scale-factor)), calc(0.17vw * var(--scale-factor)), calc(0.1rem * var(--scale-factor)));
     border-radius: calc(var(--border-radius) / 3);
 }
@@ -565,7 +565,7 @@ main {
     }
     
     .char {
-        font-size: clamp(0.8rem, 2vw, 1rem);
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
     }
     
     .input-row {
@@ -579,12 +579,12 @@ main {
         min-width: clamp(35px, 8vw, 45px);
         height: clamp(35px, 8vw, 45px);
         padding: clamp(0.2rem, 0.5vw, 0.3rem);
-        font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+        font-size: clamp(0.9rem, 2.25vw, 1.2rem);
     }
     
     #japanese-input {
         height: clamp(35px, 8vw, 45px);
-        font-size: max(16px, clamp(1rem, 3vw, 1.2rem));
+        font-size: max(16px, clamp(1.5rem, 4.5vw, 1.8rem));
         padding: clamp(0.2rem, 0.5vw, 0.27rem);
         overflow-y: auto;
     }
@@ -599,7 +599,7 @@ main {
     }
     
     .kanji-icon {
-        font-size: clamp(2rem, 5vw, 2.6rem);
+        font-size: clamp(3rem, 7.5vw, 3.9rem);
         width: clamp(3rem, 7vw, 4rem);
         height: clamp(3rem, 7vw, 4rem);
         margin-bottom: clamp(0.2rem, 0.5vw, 0.3rem);
@@ -616,12 +616,12 @@ main {
     }
     
     .syllable-char {
-        font-size: clamp(1.4rem, 3.6vw, 1.8rem);
+        font-size: clamp(2.1rem, 5.4vw, 2.7rem);
         margin-bottom: clamp(0.1rem, 0.3vw, 0.15rem);
     }
     
     .reading {
-        font-size: clamp(0.5rem, 1.2vw, 0.7rem);
+        font-size: clamp(0.75rem, 1.8vw, 1.05rem);
         padding: clamp(0.1rem, 0.3vw, 0.15rem);
     }
     
