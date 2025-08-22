@@ -14,6 +14,7 @@ class PWAUpdater {
     this.showPostUpdateToastIfNeeded();
     this.registerServiceWorker();
     this.setupEventListeners();
+    this.setupAppLifecycleHandlers();
   }
 
   async registerServiceWorker() {
@@ -23,6 +24,10 @@ class PWAUpdater {
       
       this.setupUpdateDetection(registration);
       this.startPeriodicUpdateCheck(registration);
+      
+      setTimeout(() => {
+        this.checkForUpdates();
+      }, 1000);
     } catch (error) {
       console.log('SW registration failed:', error);
     }
@@ -62,6 +67,56 @@ class PWAUpdater {
     window.addEventListener('online', () => {
       this.checkForUpdates();
     });
+
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        this.checkForUpdates();
+      }
+    });
+  }
+
+  setupAppLifecycleHandlers() {
+    if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+      window.addEventListener('beforeunload', () => {
+        try {
+          const now = Date.now();
+          localStorage.setItem('pwaLastActive', now.toString());
+        } catch (e) {}
+      });
+
+      window.addEventListener('load', () => {
+        this.checkAppResumeFromCache();
+      });
+
+      if ('onpagehide' in window) {
+        window.addEventListener('pagehide', () => {
+          try {
+            const now = Date.now();
+            localStorage.setItem('pwaLastActive', now.toString());
+          } catch (e) {}
+        });
+      }
+
+      if ('onpageshow' in window) {
+        window.addEventListener('pageshow', (event) => {
+          if (event.persisted) {
+            this.checkAppResumeFromCache();
+          }
+        });
+      }
+    }
+  }
+
+  checkAppResumeFromCache() {
+    try {
+      const lastActive = localStorage.getItem('pwaLastActive');
+      if (lastActive) {
+        const timeDiff = Date.now() - parseInt(lastActive);
+        if (timeDiff > 300000) {
+          this.checkForUpdates();
+        }
+      }
+    } catch (e) {}
   }
 
   async checkForUpdates() {
