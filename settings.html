@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#6A8CAF">
-<title>Japanese Mini App</title>
+<title>Settings - Japanese Mini App</title>
 <link rel="stylesheet" href="style.css">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="icons/icon-192.svg">
 <script src="pwa-updater.js" defer></script>
-<script src="app.js" defer></script>
+<script src="settings.js" defer></script>
 </head>
 <body>
 <header class="top-menu">
@@ -18,7 +18,7 @@
 <a href="settings.html" class="menu-link">Settings</a>
 </div>
 <div class="menu-center">
-<span class="exercise-title">Japanese Practice</span>
+<span class="exercise-title">Настройки</span>
 </div>
 <div class="menu-right">
 <button id="font-decrease" class="menu-btn">A-</button>
@@ -26,13 +26,13 @@
 </div>
 </header>
 <main>
-<ul class="exercise-list">
-<li><a href="exercises/hiragana/hiragana.html">Hiragana</a></li>
-<li><a href="exercises/katakana/katakana.html">Katakana</a></li>
-<li><a href="exercises/hiraganaandkatakana/hiraganaandkatakana.html">Hiragana + Katakana</a></li>
-<li><a href="exercises/phrase_practice/phrase_practice.html">Phrase Practice</a></li>
-<li><a href="exercises/transliteration/transliteration.html">Transliteration</a></li>
-</ul>
+<div class="settings-container">
+<div class="settings-section">
+<h2>Обновления</h2>
+<button id="check-updates-btn" class="settings-btn">Проверить обновления и установить</button>
+<div id="update-status" class="update-status"></div>
+</div>
+</div>
 </main>
 </body>
 </html>
