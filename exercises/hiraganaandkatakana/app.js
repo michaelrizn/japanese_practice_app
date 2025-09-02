@@ -1,4 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
   initFontSize();
-  new ExerciseManager(hiraganaAndKatakana);
+  new LeitnerExerciseManager();
 });
