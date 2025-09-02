@@ -36,9 +36,7 @@ class SettingsManager {
         throw new Error('Service Worker не зарегистрирован');
       }
       
-      await registration.update();
-      
-      const hasUpdate = await this.waitForUpdate(registration);
+      const hasUpdate = await this.checkForUpdatesWithFallback(registration);
       
       if (hasUpdate) {
         this.showStatus('Обновление найдено! Устанавливаем...', 'info');
@@ -49,8 +47,14 @@ class SettingsManager {
           window.location.reload();
         }, 1500);
       } else {
-        this.showStatus('Обновлений не найдено. У вас последняя версия.', 'success');
-        this.resetButton();
+        const forceUpdate = await this.checkForceUpdate();
+        if (forceUpdate) {
+          this.showStatus('Найдены изменения в кэше! Принудительное обновление...', 'info');
+          await this.clearCacheAndReload();
+        } else {
+          this.showStatus('Обновлений не найдено. У вас последняя версия.', 'success');
+          this.resetButton();
+        }
       }
     } catch (error) {
       console.error('Ошибка при проверке обновлений:', error);
@@ -59,7 +63,127 @@ class SettingsManager {
     }
   }
 
-  waitForUpdate(registration, timeout = 10000) {
+  async checkForUpdatesWithFallback(registration) {
+    await registration.update();
+    
+    const hasUpdate = await this.waitForUpdate(registration, 15000);
+    
+    if (!hasUpdate) {
+      const forceUpdate = await this.checkForceUpdate();
+      if (forceUpdate) {
+        this.showStatus('Принудительное обновление кэша...', 'info');
+        await this.clearCacheAndReload();
+        return false;
+      }
+    }
+    
+    return hasUpdate;
+  }
+
+  async checkForceUpdate() {
+    try {
+      const timestamp = Date.now();
+      const response = await fetch(`./sw.js?v=${timestamp}`, {
+        cache: 'no-cache',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      
+      const swContent = await response.text();
+      const versionMatch = swContent.match(/CACHE_NAME = '([^']+)'/);
+      
+      if (versionMatch) {
+        const currentVersion = versionMatch[1];
+        const storedVersion = localStorage.getItem('pwa-cache-version');
+        
+        if (storedVersion && storedVersion !== currentVersion) {
+          localStorage.setItem('pwa-cache-version', currentVersion);
+          return true;
+        } else if (!storedVersion) {
+          localStorage.setItem('pwa-cache-version', currentVersion);
+        }
+      }
+      
+      return await this.checkManifestUpdate(timestamp);
+    } catch (error) {
+      console.log('Force update check failed:', error);
+      return false;
+    }
+  }
+
+  async checkManifestUpdate(timestamp) {
+    try {
+      const response = await fetch(`./manifest.json?v=${timestamp}`, {
+        cache: 'no-cache',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
+      });
+      
+      if (!response.ok) {
+        return false;
+      }
+      
+      const lastModified = response.headers.get('Last-Modified');
+      const etag = response.headers.get('ETag');
+      
+      const storedLastModified = localStorage.getItem('pwa-manifest-modified');
+      const storedEtag = localStorage.getItem('pwa-manifest-etag');
+      
+      if (lastModified && storedLastModified && lastModified !== storedLastModified) {
+        localStorage.setItem('pwa-manifest-modified', lastModified);
+        return true;
+      }
+      
+      if (etag && storedEtag && etag !== storedEtag) {
+        localStorage.setItem('pwa-manifest-etag', etag);
+        return true;
+      }
+      
+      if (!storedLastModified && lastModified) {
+        localStorage.setItem('pwa-manifest-modified', lastModified);
+      }
+      
+      if (!storedEtag && etag) {
+        localStorage.setItem('pwa-manifest-etag', etag);
+      }
+      
+    } catch (error) {
+      console.log('Manifest update check failed:', error);
+    }
+    
+    return false;
+  }
+
+  async clearCacheAndReload() {
+    try {
+      const cacheNames = await caches.keys();
+      await Promise.all(cacheNames.map(name => caches.delete(name)));
+      
+      if ('serviceWorker' in navigator) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(registrations.map(reg => reg.unregister()));
+      }
+      
+      setTimeout(() => {
+        window.location.reload(true);
+      }, 1000);
+    } catch (error) {
+      console.log('Cache clear failed:', error);
+      window.location.reload(true);
+    }
+  }
+
+  waitForUpdate(registration, timeout = 15000) {
     return new Promise((resolve) => {
       const startTime = Date.now();
       

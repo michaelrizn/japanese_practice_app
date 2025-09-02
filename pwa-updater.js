@@ -1,8 +1,9 @@
 class PWAUpdater {
   constructor() {
     this.refreshing = false;
-    this.updateCheckInterval = 60000;
+    this.updateCheckInterval = 30000;
     this.autoUpdateDelay = 10000;
+    this.isGitHubPages = window.location.hostname.includes('github.io');
   }
 
   init() {
@@ -124,7 +125,11 @@ class PWAUpdater {
       try {
         const registration = await navigator.serviceWorker.getRegistration();
         if (registration) {
-          registration.update();
+          if (this.isGitHubPages) {
+            await this.forceServiceWorkerUpdate(registration);
+          } else {
+            registration.update();
+          }
         }
       } catch (error) {
         console.log('Update check failed:', error);
@@ -220,6 +225,29 @@ class PWAUpdater {
         notification.remove();
       }
     }, this.autoUpdateDelay);
+  }
+
+  async forceServiceWorkerUpdate(registration) {
+    try {
+      const timestamp = Date.now();
+      const swUrl = `./sw.js?v=${timestamp}`;
+      
+      const response = await fetch(swUrl, {
+        cache: 'no-cache',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
+      });
+      
+      if (response.ok) {
+        await registration.update();
+      }
+    } catch (error) {
+      console.log('Force SW update failed:', error);
+      registration.update();
+    }
   }
 
   applyUpdate() {

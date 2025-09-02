@@ -1,4 +1,4 @@
-const CACHE_NAME = 'japanese-practice-v5';
+const CACHE_NAME = 'japanese-practice-v6';
 const urlsToCache = [
   './',
   './index.html',
@@ -41,15 +41,39 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') {
+    return;
+  }
+  
   event.respondWith(
     caches.match(event.request)
       .then(response => {
+        const fetchPromise = fetch(event.request, {
+          cache: 'no-cache'
+        }).then(fetchResponse => {
+          if (fetchResponse.ok) {
+            const responseClone = fetchResponse.clone();
+            caches.open(CACHE_NAME)
+              .then(cache => {
+                cache.put(event.request, responseClone);
+              });
+          }
+          return fetchResponse;
+        }).catch(() => {
+          return response;
+        });
+        
         if (response) {
+          const url = new URL(event.request.url);
+          if (url.pathname.endsWith('.html') || url.pathname.endsWith('/') || 
+              url.pathname.endsWith('.js') || url.pathname.endsWith('.css')) {
+            return fetchPromise;
+          }
           return response;
         }
-        return fetch(event.request);
-      }
-    )
+        
+        return fetchPromise;
+      })
   );
 });
 
