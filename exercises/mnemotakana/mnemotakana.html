@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mnemotakana Practice</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="manifest" href="../../manifest.json">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" href="../../icon-192x192.png">
+    <script src="common-font.js" defer></script>
+</head>
+<body>
+    <header class="top-menu">
+        <div class="menu-left">
+            <a href="../../index.html" class="menu-link">← Main</a>
+        </div>
+        <div class="menu-center">
+            <span class="exercise-title">Mnemotakana</span>
+        </div>
+        <div class="menu-right">
+            <button id="font-decrease" class="menu-btn">A-</button>
+            <button id="font-increase" class="menu-btn">A+</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <main>
+            <div class="exercise-container">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-text" id="progress-text">0 / 0</div>
+                </div>
+
+                <div class="card-container" id="card-container">
+                    <div class="character-card">
+                        <div class="character-display" id="character-display">あ</div>
+                        
+                        <div class="card-buttons">
+                            <button class="btn btn-secondary" id="show-mnemonic-btn">Показать подсказку</button>
+                            <button class="btn btn-secondary" id="show-reading-btn">Показать чтение</button>
+                        </div>
+
+                        <div class="mnemonic-display" id="mnemonic-display" style="display: none;">
+                            <p class="mnemonic-text" id="mnemonic-text"></p>
+                        </div>
+
+                        <div class="reading-display" id="reading-display" style="display: none;">
+                            <p class="reading-text" id="reading-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="btn btn-primary" id="prev-btn" disabled>← Предыдущий</button>
+                    <button class="btn btn-primary" id="next-btn">Следующий →</button>
+                </div>
+
+                <div class="control-buttons">
+                    <button class="btn btn-accent" id="shuffle-btn">🔀 Перемешать заново</button>
+                    <button class="btn btn-secondary" id="reset-btn">↺ Сбросить</button>
+                </div>
+            </div>
+        </main>
+
+
+    </div>
+
+    <script src="../../common.js"></script>
+    <script src="../../pwa-updater.js"></script>
+    <script src="mnemotakana-data.js"></script>
+    <script src="mnemotakana-manager.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

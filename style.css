@@ -933,3 +933,265 @@ main {
         margin: clamp(1rem, 3vw, 1.5rem) 0;
     }
 }
+
+/* Стили для Mnemotakana */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: clamp(1rem, 3vw, 2rem) 0;
+}
+
+.character-card {
+    background-color: var(--element-bg);
+    border: 2px solid var(--border-color);
+    border-radius: calc(var(--border-radius) * 2);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all var(--transition-time);
+}
+
+.character-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.character-display {
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card-buttons {
+    display: flex;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    justify-content: center;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    flex-wrap: wrap;
+}
+
+.mnemonic-display, .reading-display {
+    margin-top: clamp(1rem, 3vw, 1.5rem);
+    padding: clamp(0.8rem, 2vw, 1.2rem);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-time);
+}
+
+.mnemonic-display {
+    background-color: rgba(106, 140, 175, 0.1);
+    border: 1px solid rgba(106, 140, 175, 0.3);
+}
+
+.reading-display {
+    background-color: rgba(104, 170, 126, 0.1);
+    border: 1px solid rgba(104, 170, 126, 0.3);
+}
+
+.mnemonic-text, .reading-text {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    line-height: 1.4;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.reading-text {
+    font-weight: bold;
+    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+}
+
+.progress-container {
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    text-align: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: clamp(8px, 2vw, 12px);
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: calc(var(--border-radius) * 2);
+    overflow: hidden;
+    margin-bottom: clamp(0.5rem, 1.5vw, 0.8rem);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color), #8BADD6);
+    transition: width 0.3s ease;
+    border-radius: calc(var(--border-radius) * 2);
+}
+
+.progress-text {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    color: var(--secondary-text);
+    font-weight: bold;
+}
+
+.navigation-buttons {
+    display: flex;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    justify-content: center;
+    margin: clamp(1rem, 3vw, 1.5rem) 0;
+}
+
+.control-buttons {
+    display: flex;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    justify-content: center;
+    margin-top: clamp(1rem, 3vw, 1.5rem);
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1rem, 3vw, 1.5rem);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    cursor: pointer;
+    transition: all var(--transition-time);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: fit-content;
+}
+
+.btn:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--accent-color);
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn:disabled:hover {
+    background-color: var(--element-bg);
+    border-color: var(--border-color);
+    transform: none;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #5A7A9F;
+    border-color: #5A7A9F;
+}
+
+.btn-secondary {
+    background-color: var(--element-bg);
+    border-color: var(--border-color);
+}
+
+.btn-secondary.active {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.btn-accent {
+    background-color: rgba(104, 170, 126, 0.2);
+    border-color: #68AA7E;
+    color: var(--text-color);
+}
+
+.btn-accent:hover {
+    background-color: rgba(104, 170, 126, 0.3);
+    border-color: #68AA7E;
+}
+
+.message-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+.message-overlay.show {
+    opacity: 1;
+}
+
+.message-content {
+    background-color: var(--element-bg);
+    border: 2px solid var(--border-color);
+    border-radius: calc(var(--border-radius) * 2);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.message-success .message-content {
+    border-color: var(--success-color);
+}
+
+.message-info .message-content {
+    border-color: var(--accent-color);
+}
+
+.completion-message h3 {
+    color: var(--success-color);
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.completion-message p {
+    margin-bottom: clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .character-card {
+        padding: clamp(1rem, 3vw, 1.5rem);
+        margin: 0 clamp(0.5rem, 2vw, 1rem);
+    }
+    
+    .character-display {
+        font-size: clamp(3rem, 10vw, 5rem);
+    }
+    
+    .card-buttons {
+        flex-direction: column;
+        gap: clamp(0.5rem, 1.5vw, 0.8rem);
+    }
+    
+    .navigation-buttons, .control-buttons {
+        flex-direction: column;
+        gap: clamp(0.5rem, 1.5vw, 0.8rem);
+    }
+    
+    .btn {
+        padding: clamp(0.8rem, 2.5vw, 1rem) clamp(1.2rem, 3.5vw, 1.8rem);
+        font-size: clamp(1rem, 3vw, 1.2rem);
+    }
+}

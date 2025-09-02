@@ -1,4 +1,4 @@
-const CACHE_NAME = 'japanese-practice-v6';
+const CACHE_NAME = 'japanese-practice-v7';
 const urlsToCache = [
   './',
   './index.html',
@@ -16,6 +16,10 @@ const urlsToCache = [
   './exercises/hiraganaandkatakana/hiraganaandkatakana.html',
   './exercises/hiraganaandkatakana/hiraganaandkatakana.js',
   './exercises/hiraganaandkatakana/app.js',
+  './exercises/mnemotakana/mnemotakana.html',
+  './exercises/mnemotakana/mnemotakana-data.js',
+  './exercises/mnemotakana/mnemotakana-manager.js',
+  './exercises/mnemotakana/app.js',
   './exercises/phrase_practice/phrase_practice.html',
   './exercises/phrase_practice/app.js',
   './exercises/phrase_practice/data/hiragana_phrases_01.js',
