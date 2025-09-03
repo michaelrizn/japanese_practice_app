@@ -152,8 +152,8 @@ class PWAUpdater {
       position: fixed;
       top: 20px;
       right: 20px;
-      background: #4CAF50;
-      color: white;
+      background: #808080;
+                color: white;
       padding: 15px 20px;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -168,7 +168,7 @@ class PWAUpdater {
       <div style="margin-bottom: 10px;">Доступно обновление приложения!</div>
       <button class="update-btn" style="
         background: white;
-        color: #4CAF50;
+                color: #808080;
         border: none;
         padding: 8px 16px;
         border-radius: 4px;
@@ -178,7 +178,7 @@ class PWAUpdater {
       ">Обновить</button>
       <button class="dismiss-btn" style="
         background: transparent;
-        color: white;
+                color: white;
         border: 1px solid white;
         padding: 8px 16px;
         border-radius: 4px;
@@ -285,8 +285,8 @@ class PWAUpdater {
       position: fixed;
       top: 20px;
       right: 20px;
-      background: #4CAF50;
-      color: white;
+      background: #808080;
+                color: white;
       padding: 10px 14px;
       border-radius: 6px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);

@@ -4,6 +4,8 @@ class MnemotakanaManager {
         this.currentIndex = 0;
         this.isShowingMnemonic = false;
         this.isShowingReading = false;
+        this.persistMnemonicState = false;
+        this.persistReadingState = false;
         this.init();
     }
 
@@ -68,7 +70,7 @@ class MnemotakanaManager {
         document.getElementById('prev-btn').disabled = this.currentIndex === 0;
         document.getElementById('next-btn').disabled = this.currentIndex === this.characters.length - 1;
 
-        this.hideAllHints();
+        this.applyPersistedStates();
         this.updateButtonStates();
     }
 
@@ -77,6 +79,41 @@ class MnemotakanaManager {
         document.getElementById('reading-display').style.display = 'none';
         this.isShowingMnemonic = false;
         this.isShowingReading = false;
+    }
+
+    applyPersistedStates() {
+        this.isShowingMnemonic = this.persistMnemonicState;
+        this.isShowingReading = this.persistReadingState;
+        
+        if (this.isShowingMnemonic) {
+            this.showMnemonicHint();
+        } else {
+            document.getElementById('mnemonic-display').style.display = 'none';
+        }
+        
+        if (this.isShowingReading) {
+            this.showReadingHint();
+        } else {
+            document.getElementById('reading-display').style.display = 'none';
+        }
+    }
+
+    showMnemonicHint() {
+        const currentChar = this.characters[this.currentIndex];
+        const mnemonicDisplay = document.getElementById('mnemonic-display');
+        const mnemonicText = document.getElementById('mnemonic-text');
+        
+        mnemonicText.textContent = currentChar.mnemonic;
+        mnemonicDisplay.style.display = 'block';
+    }
+
+    showReadingHint() {
+        const currentChar = this.characters[this.currentIndex];
+        const readingDisplay = document.getElementById('reading-display');
+        const readingText = document.getElementById('reading-text');
+        
+        readingText.textContent = currentChar.reading;
+        readingDisplay.style.display = 'block';
     }
 
     updateButtonStates() {
@@ -91,34 +128,26 @@ class MnemotakanaManager {
     }
 
     toggleMnemonic() {
-        const currentChar = this.characters[this.currentIndex];
-        const mnemonicDisplay = document.getElementById('mnemonic-display');
-        const mnemonicText = document.getElementById('mnemonic-text');
-        
         this.isShowingMnemonic = !this.isShowingMnemonic;
+        this.persistMnemonicState = this.isShowingMnemonic;
         
         if (this.isShowingMnemonic) {
-            mnemonicText.textContent = currentChar.mnemonic;
-            mnemonicDisplay.style.display = 'block';
+            this.showMnemonicHint();
         } else {
-            mnemonicDisplay.style.display = 'none';
+            document.getElementById('mnemonic-display').style.display = 'none';
         }
         
         this.updateButtonStates();
     }
 
     toggleReading() {
-        const currentChar = this.characters[this.currentIndex];
-        const readingDisplay = document.getElementById('reading-display');
-        const readingText = document.getElementById('reading-text');
-        
         this.isShowingReading = !this.isShowingReading;
+        this.persistReadingState = this.isShowingReading;
         
         if (this.isShowingReading) {
-            readingText.textContent = currentChar.reading;
-            readingDisplay.style.display = 'block';
+            this.showReadingHint();
         } else {
-            readingDisplay.style.display = 'none';
+            document.getElementById('reading-display').style.display = 'none';
         }
         
         this.updateButtonStates();
@@ -143,12 +172,16 @@ class MnemotakanaManager {
     shuffleCards() {
         this.characters = shuffleArray(getAllCharacters());
         this.currentIndex = 0;
+        this.persistMnemonicState = false;
+        this.persistReadingState = false;
         this.updateDisplay();
         this.showMessage('Карточки перемешаны!', 'success');
     }
 
     resetCards() {
         this.currentIndex = 0;
+        this.persistMnemonicState = false;
+        this.persistReadingState = false;
         this.updateDisplay();
         this.showMessage('Сброшено к началу', 'info');
     }

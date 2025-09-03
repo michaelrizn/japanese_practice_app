@@ -5,7 +5,7 @@
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#2A2A2A",
-  "theme_color": "#6A8CAF",
+    "theme_color": "#808080",
   "orientation": "portrait-primary",
   "scope": "./",
   "lang": "ru",

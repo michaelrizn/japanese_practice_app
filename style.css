@@ -3,11 +3,11 @@
     --text-color: #E0E0E0;
     --border-color: #555555;
     --hover-bg: #3A3A3A;
-    --accent-color: #6A8CAF;
+    --accent-color: #808080;
     --element-bg: #353535;
     --secondary-text: #B0B0B0;
-    --error-color: #AA6868;
-    --success-color: #68AA7E;
+    --error-color: #888888;
+    --success-color: #999999;
     --transition-time: 0.3s;
     --border-radius: 4px;
     --scale-factor: 2;
@@ -358,7 +358,7 @@ main {
 }
 
 .clear-btn:hover {
-    background-color: rgba(170, 104, 104, 0.1);
+    background-color: rgba(136, 136, 136, 0.1);
     border-color: var(--error-color);
 }
 
@@ -419,7 +419,7 @@ main {
 }
 
 .char-item.kanji {
-    border-left: 3px solid #E8B8B8;
+    border-left: 3px solid #C0C0C0;
 }
 
 .char-item.other {
@@ -428,7 +428,7 @@ main {
 
 .char-item.hiragana-breakdown {
     border-left: 3px solid #E8B8B8;
-    background-color: rgba(232, 184, 184, 0.1);
+    background-color: rgba(192, 192, 192, 0.1);
 }
 
 .char {
@@ -452,17 +452,17 @@ main {
 }
 
 .reading.ru {
-    background-color: rgba(104, 170, 126, 0.2);
+    background-color: rgba(144, 144, 144, 0.2);
     color: var(--text-color);
 }
 
 .reading.en {
-    background-color: rgba(106, 140, 175, 0.2);
+    background-color: rgba(128, 128, 128, 0.2);
     color: var(--text-color);
 }
 
 .reading.jp {
-    background-color: rgba(170, 104, 104, 0.2);
+    background-color: rgba(136, 136, 136, 0.2);
     color: var(--text-color);
     font-weight: 600;
 }
@@ -495,9 +495,9 @@ main {
 .kanji-icon {
     font-size: clamp(calc(1.66rem * var(--scale-factor)), calc(4.66vw * var(--scale-factor)), calc(2.66rem * var(--scale-factor)));
     font-weight: bold;
-    color: #E8B8B8;
-    background: linear-gradient(135deg, rgba(232, 184, 184, 0.1), rgba(232, 184, 184, 0.2));
-    border: 2px solid rgba(232, 184, 184, 0.3);
+    color: #C0C0C0;
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.1), rgba(192, 192, 192, 0.2));
+    border: 2px solid rgba(192, 192, 192, 0.3);
     border-radius: 50%;
     width: clamp(calc(2.66rem * var(--scale-factor)), calc(6.66vw * var(--scale-factor)), calc(4rem * var(--scale-factor)));
     height: clamp(calc(2.66rem * var(--scale-factor)), calc(6.66vw * var(--scale-factor)), calc(4rem * var(--scale-factor)));
@@ -516,8 +516,8 @@ main {
 }
 
 .syllable-item {
-    background-color: rgba(168, 213, 168, 0.1);
-    border: 1px solid rgba(168, 213, 168, 0.3);
+    background-color: rgba(160, 160, 160, 0.1);
+    border: 1px solid rgba(160, 160, 160, 0.3);
     border-radius: calc(var(--border-radius) / 1.5);
     padding: clamp(calc(0.13rem * var(--scale-factor)), calc(0.33vw * var(--scale-factor)), calc(0.2rem * var(--scale-factor)));
     min-width: clamp(calc(1rem * var(--scale-factor)), calc(2.67vw * var(--scale-factor)), calc(1.33rem * var(--scale-factor)));
@@ -525,8 +525,8 @@ main {
 }
 
 .syllable-item:hover {
-    background-color: rgba(168, 213, 168, 0.2);
-    border-color: #A8D5A8;
+    background-color: rgba(160, 160, 160, 0.2);
+    border-color: #A0A0A0;
     transform: scale(1.05);
 }
 
@@ -658,74 +658,9 @@ main {
     }
 }
 
-.settings-container {
-    max-width: 600px;
-    margin: 0 auto;
-}
 
-.settings-section {
-    margin-bottom: clamp(1.5rem, 4vw, 2rem);
-    padding: clamp(1rem, 3vw, 1.5rem);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    background-color: var(--element-bg);
-}
 
-.settings-section h2 {
-    margin: 0 0 clamp(1rem, 3vw, 1.5rem) 0;
-    color: var(--text-color);
-    font-size: clamp(1.3rem, 3.5vw, 1.6rem);
-}
 
-.settings-btn {
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    padding: clamp(0.7rem, 2.5vw, 1rem) clamp(1rem, 3vw, 1.5rem);
-    border-radius: var(--border-radius);
-    font-size: clamp(1rem, 2.8vw, 1.2rem);
-    cursor: pointer;
-    transition: all var(--transition-time);
-    width: 100%;
-    max-width: 300px;
-}
-
-.settings-btn:hover:not(:disabled) {
-    background-color: #5A7CAF;
-    transform: translateY(-1px);
-}
-
-.settings-btn:disabled {
-    background-color: var(--border-color);
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-.update-status {
-    margin-top: clamp(0.8rem, 2vw, 1rem);
-    padding: clamp(0.5rem, 1.5vw, 0.8rem);
-    border-radius: var(--border-radius);
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-    display: none;
-}
-
-.update-status.info {
-    background-color: rgba(106, 140, 175, 0.2);
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-}
-
-.update-status.success {
-    background-color: rgba(104, 170, 126, 0.2);
-    border: 1px solid var(--success-color);
-    color: var(--success-color);
-}
-
-.update-status.error {
-    background-color: rgba(170, 104, 104, 0.2);
-    border: 1px solid var(--error-color);
-    color: var(--error-color);
-}
 
 .menu-left {
     display: flex;
@@ -793,7 +728,7 @@ main {
 .control-btn.active {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
-    color: white;
+    color: #FFFFFF;
 }
 
 .box-controls span {
@@ -984,13 +919,13 @@ main {
 }
 
 .mnemonic-display {
-    background-color: rgba(106, 140, 175, 0.1);
-    border: 1px solid rgba(106, 140, 175, 0.3);
+    background-color: rgba(128, 128, 128, 0.1);
+    border: 1px solid rgba(128, 128, 128, 0.3);
 }
 
 .reading-display {
-    background-color: rgba(104, 170, 126, 0.1);
-    border: 1px solid rgba(104, 170, 126, 0.3);
+    background-color: rgba(144, 144, 144, 0.1);
+    border: 1px solid rgba(144, 144, 144, 0.3);
 }
 
 .mnemonic-text, .reading-text {
@@ -1022,7 +957,7 @@ main {
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--accent-color), #8BADD6);
+    background: linear-gradient(90deg, var(--accent-color), #909090);
     transition: width 0.3s ease;
     border-radius: calc(var(--border-radius) * 2);
 }
@@ -1093,8 +1028,8 @@ main {
 }
 
 .btn-primary:hover {
-    background-color: #5A7A9F;
-    border-color: #5A7A9F;
+    background-color: #707070;
+    border-color: #707070;
 }
 
 .btn-secondary {
@@ -1109,14 +1044,14 @@ main {
 }
 
 .btn-accent {
-    background-color: rgba(104, 170, 126, 0.2);
-    border-color: #68AA7E;
+    background-color: rgba(144, 144, 144, 0.2);
+    border-color: #909090;
     color: var(--text-color);
 }
 
 .btn-accent:hover {
-    background-color: rgba(104, 170, 126, 0.3);
-    border-color: #68AA7E;
+    background-color: rgba(144, 144, 144, 0.3);
+    border-color: #909090;
 }
 
 .message-overlay {
