@@ -1,190 +1,190 @@
 const MNEMOTAKANA_DATA = {
-    hiragana: [
-        { char: 'あ', reading: 'a', mnemonic: 'Антенна на крыше' },
-        { char: 'い', reading: 'i', mnemonic: 'Игла вертикальная' },
-        { char: 'う', reading: 'u', mnemonic: 'Улитка с завитком' },
-        { char: 'え', reading: 'e', mnemonic: 'Этажерка трехэтажная' },
-        { char: 'お', reading: 'o', mnemonic: 'Обруч с хвостиком' },
-        
-        { char: 'か', reading: 'ka', mnemonic: 'Каблук с ремешком' },
-        { char: 'き', reading: 'ki', mnemonic: 'Ключ с бородкой' },
-        { char: 'く', reading: 'ku', mnemonic: 'Клюв птицы' },
-        { char: 'け', reading: 'ke', mnemonic: 'Кепка набок' },
-        { char: 'こ', reading: 'ko', mnemonic: 'Коробка без крышки' },
-        
-        { char: 'さ', reading: 'sa', mnemonic: 'Сабля с одной заточкой' },
-        { char: 'し', reading: 'shi', mnemonic: 'Шило кривое' },
-        { char: 'す', reading: 'su', mnemonic: 'Суслик сидит' },
-        { char: 'せ', reading: 'se', mnemonic: 'Сетка с веревкой' },
-        { char: 'そ', reading: 'so', mnemonic: 'Сова с хвостом' },
-        
-        { char: 'た', reading: 'ta', mnemonic: 'Табурет с ножкой' },
-        { char: 'ち', reading: 'chi', mnemonic: 'Число пять (5)' },
-        { char: 'つ', reading: 'tsu', mnemonic: 'Цунами-волна' },
-        { char: 'て', reading: 'te', mnemonic: 'Телега с оглоблей' },
-        { char: 'と', reading: 'to', mnemonic: 'Топор с рукояткой' },
-        
-        { char: 'な', reading: 'na', mnemonic: 'Наклон с крючком' },
-        { char: 'に', reading: 'ni', mnemonic: 'Нитка на иголке' },
-        { char: 'ぬ', reading: 'nu', mnemonic: 'Нудлс в тарелке' },
-        { char: 'ね', reading: 'ne', mnemonic: 'Неваляшка с петлей' },
-        { char: 'の', reading: 'no', mnemonic: 'Носик чайника' },
-        
-        { char: 'は', reading: 'ha', mnemonic: 'Халат на вешалке' },
-        { char: 'ひ', reading: 'hi', mnemonic: 'Хитрый крючок' },
-        { char: 'ふ', reading: 'fu', mnemonic: 'Фуражка с козырьком' },
-        { char: 'へ', reading: 'he', mnemonic: 'Холм невысокий' },
-        { char: 'ほ', reading: 'ho', mnemonic: 'Холм с крестом' },
-        
-        { char: 'ま', reading: 'ma', mnemonic: 'Мачта с флагом' },
-        { char: 'み', reading: 'mi', mnemonic: 'Мидия с усиками' },
-        { char: 'む', reading: 'mu', mnemonic: 'Музыкальная нота (си)' },
-        { char: 'め', reading: 'me', mnemonic: 'Мешок завязанный' },
-        { char: 'も', reading: 'mo', mnemonic: 'Мостик с опорой' },
-        
-        { char: 'や', reading: 'ya', mnemonic: 'Якорь с цепью' },
-        { char: 'ゆ', reading: 'yu', mnemonic: 'Юла крутится' },
-        { char: 'よ', reading: 'yo', mnemonic: 'Йогурт в стакане' },
-        
-        { char: 'ら', reading: 'ra', mnemonic: 'Рак с клешней' },
-        { char: 'り', reading: 'ri', mnemonic: 'Река извилистая' },
-        { char: 'る', reading: 'ru', mnemonic: 'Рука с кольцом' },
-        { char: 'れ', reading: 're', mnemonic: 'Рельс изогнутый' },
-        { char: 'ろ', reading: 'ro', mnemonic: 'Рот квадратный' },
-        
-        { char: 'わ', reading: 'wa', mnemonic: 'Ваза с ручкой' },
-        { char: 'を', reading: 'wo', mnemonic: 'Волна с пеной' },
-        { char: 'ん', reading: 'n', mnemonic: 'Наклоненная "и"' },
-        
-        { char: 'が', reading: 'ga', mnemonic: 'Гантель с грузом' },
-        { char: 'ぎ', reading: 'gi', mnemonic: 'Гиря на цепи' },
-        { char: 'ぐ', reading: 'gu', mnemonic: 'Гусь плывет' },
-        { char: 'げ', reading: 'ge', mnemonic: 'Герб с короной' },
-        { char: 'ご', reading: 'go', mnemonic: 'Гонг круглый' },
-        
-        { char: 'ざ', reading: 'za', mnemonic: 'Заяц с ушами' },
-        { char: 'じ', reading: 'ji', mnemonic: 'Жираф с пятнами' },
-        { char: 'ず', reading: 'zu', mnemonic: 'Зуб острый' },
-        { char: 'ぜ', reading: 'ze', mnemonic: 'Зебра полосатая' },
-        { char: 'ぞ', reading: 'zo', mnemonic: 'Зонт раскрытый' },
-        
-        { char: 'だ', reading: 'da', mnemonic: 'Дача с трубой' },
-        { char: 'ぢ', reading: 'ji', mnemonic: 'Джинсы модные' },
-        { char: 'づ', reading: 'zu', mnemonic: 'Дуга с точкой' },
-        { char: 'で', reading: 'de', mnemonic: 'Дерево с веткой' },
-        { char: 'ど', reading: 'do', mnemonic: 'Дом с окном' },
-        
-        { char: 'ば', reading: 'ba', mnemonic: 'Барабан с палочкой' },
-        { char: 'び', reading: 'bi', mnemonic: 'Бинокль театральный' },
-        { char: 'ぶ', reading: 'bu', mnemonic: 'Бублик с маком' },
-        { char: 'べ', reading: 'be', mnemonic: 'Берет набекрень' },
-        { char: 'ぼ', reading: 'bo', mnemonic: 'Бочка дубовая' },
-        
-        { char: 'ぱ', reading: 'pa', mnemonic: 'Парус на ветру' },
-        { char: 'ぴ', reading: 'pi', mnemonic: 'Пика острая' },
-        { char: 'ぷ', reading: 'pu', mnemonic: 'Пуговица круглая' },
-        { char: 'ぺ', reading: 'pe', mnemonic: 'Перо павлина' },
-        { char: 'ぽ', reading: 'po', mnemonic: 'Пончик глазурованный' }
-    ],
-    
-    katakana: [
-        { char: 'ア', reading: 'a', mnemonic: 'Антенна телевизионная' },
-        { char: 'イ', reading: 'i', mnemonic: 'Игла швейная' },
-        { char: 'ウ', reading: 'u', mnemonic: 'Угол с крышей' },
-        { char: 'エ', reading: 'e', mnemonic: 'Этажи многоэтажки' },
-        { char: 'オ', reading: 'o', mnemonic: 'Орел расправил крылья' },
-        
-        { char: 'カ', reading: 'ka', mnemonic: 'Карниз с украшением' },
-        { char: 'キ', reading: 'ki', mnemonic: 'Кисть малярная' },
-        { char: 'ク', reading: 'ku', mnemonic: 'Клин деревянный' },
-        { char: 'ケ', reading: 'ke', mnemonic: 'Кегля для боулинга' },
-        { char: 'コ', reading: 'ko', mnemonic: 'Коробка открытая' },
-        
-        { char: 'サ', reading: 'sa', mnemonic: 'Сабля изогнутая' },
-        { char: 'シ', reading: 'shi', mnemonic: 'Широкая улыбка' },
-        { char: 'ス', reading: 'su', mnemonic: 'Стремя всадника' },
-        { char: 'セ', reading: 'se', mnemonic: 'Сетка рыболовная' },
-        { char: 'ソ', reading: 'so', mnemonic: 'Сосулька, свисающая с крыши' },
-        
-        { char: 'タ', reading: 'ta', mnemonic: 'Табурет угловатый' },
-        { char: 'チ', reading: 'chi', mnemonic: 'Чайка в полете' },
-        { char: 'ツ', reading: 'tsu', mnemonic: 'Цапли в воде' },
-        { char: 'テ', reading: 'te', mnemonic: 'Телескоп старинный' },
-        { char: 'ト', reading: 'to', mnemonic: 'Тотем индейский' },
-        
-        { char: 'ナ', reading: 'na', mnemonic: 'Наклон с палкой' },
-        { char: 'ニ', reading: 'ni', mnemonic: 'Ни (два по-японски)' },
-        { char: 'ヌ', reading: 'nu', mnemonic: 'Нуга тягучая' },
-        { char: 'ネ', reading: 'ne', mnemonic: 'Нектар сладкий' },
-        { char: 'ノ', reading: 'no', mnemonic: 'Нож кухонный' },
-        
-        { char: 'ハ', reading: 'ha', mnemonic: 'Хата с крышей' },
-        { char: 'ヒ', reading: 'hi', mnemonic: 'Хитрый изгиб' },
-        { char: 'フ', reading: 'fu', mnemonic: 'Футляр открытый' },
-        { char: 'ヘ', reading: 'he', mnemonic: 'Холм невысокий' },
-        { char: 'ホ', reading: 'ho', mnemonic: 'Хоккуист под деревом' },
-        
-        { char: 'マ', reading: 'ma', mnemonic: 'Мачта корабельная' },
-        { char: 'ミ', reading: 'mi', mnemonic: 'Мина морская' },
-        { char: 'ム', reading: 'mu', mnemonic: 'Муравейник конусом' },
-        { char: 'メ', reading: 'me', mnemonic: 'Метка крестиком' },
-        { char: 'モ', reading: 'mo', mnemonic: 'Мост подвесной' },
-        
-        { char: 'ヤ', reading: 'ya', mnemonic: 'Ятаган кривой' },
-        { char: 'ユ', reading: 'yu', mnemonic: 'Юла с осью' },
-        { char: 'ヨ', reading: 'yo', mnemonic: 'Йогурт слоями' },
-        
-        { char: 'ラ', reading: 'ra', mnemonic: 'Ракета стартует' },
-        { char: 'リ', reading: 'ri', mnemonic: 'Рельсы двойные' },
-        { char: 'ル', reading: 'ru', mnemonic: 'Рубанок строгает' },
-        { char: 'レ', reading: 're', mnemonic: 'Рейка наклонная' },
-        { char: 'ロ', reading: 'ro', mnemonic: 'Рот прямоугольный' },
-        
-        { char: 'ワ', reading: 'wa', mnemonic: 'Ваза треугольная' },
-        { char: 'ヲ', reading: 'wo', mnemonic: 'Ворота в храм' },
-        { char: 'ン', reading: 'n', mnemonic: 'Носик загнутый' },
-        
-        { char: 'ガ', reading: 'ga', mnemonic: 'Галочка с точкой' },
-        { char: 'ギ', reading: 'gi', mnemonic: 'Гиря тяжелая' },
-        { char: 'グ', reading: 'gu', mnemonic: 'Гусь белый' },
-        { char: 'ゲ', reading: 'ge', mnemonic: 'Герб рыцарский' },
-        { char: 'ゴ', reading: 'go', mnemonic: 'Голубь сизый' },
-        
-        { char: 'ザ', reading: 'za', mnemonic: 'Замок старинный' },
-        { char: 'ジ', reading: 'ji', mnemonic: 'Жираф пятнистый' },
-        { char: 'ズ', reading: 'zu', mnemonic: 'Зуб мудрости' },
-        { char: 'ゼ', reading: 'ze', mnemonic: 'Зеркало волшебное' },
-        { char: 'ゾ', reading: 'zo', mnemonic: 'Зоопарк большой' },
-        
-        { char: 'ダ', reading: 'da', mnemonic: 'Дача загородная' },
-        { char: 'ヂ', reading: 'ji', mnemonic: 'Джинсы синие' },
-        { char: 'ヅ', reading: 'zu', mnemonic: 'Дуга радужная' },
-        { char: 'デ', reading: 'de', mnemonic: 'Дерево могучее' },
-        { char: 'ド', reading: 'do', mnemonic: 'Дом кирпичный' },
-        
-        { char: 'バ', reading: 'ba', mnemonic: 'Бабочка яркая' },
-        { char: 'ビ', reading: 'bi', mnemonic: 'Бизон могучий' },
-        { char: 'ブ', reading: 'bu', mnemonic: 'Бук вековой' },
-        { char: 'ベ', reading: 'be', mnemonic: 'Белка рыжая' },
-        { char: 'ボ', reading: 'bo', mnemonic: 'Бобр трудолюбивый' },
-        
-        { char: 'パ', reading: 'pa', mnemonic: 'Парус белоснежный' },
-        { char: 'ピ', reading: 'pi', mnemonic: 'Пика стальная' },
-        { char: 'プ', reading: 'pu', mnemonic: 'Пуговица перламутровая' },
-        { char: 'ペ', reading: 'pe', mnemonic: 'Перо золотое' },
-        { char: 'ポ', reading: 'po', mnemonic: 'Пончик воздушный' }
-    ]
+  hiragana: [
+    { char: "あ", reading: "a/а", mnemonic: "Антенна" },
+    { char: "い", reading: "i/и", mnemonic: "Иглы" },
+    { char: "う", reading: "u/у", mnemonic: "Улитка" },
+    { char: "え", reading: "e/э", mnemonic: "Этажерка" },
+    { char: "お", reading: "o/о", mnemonic: "ОБруб с хвостиком" },
+
+    { char: "か", reading: "ka/ка", mnemonic: "Каблук с ремешком" },
+    { char: "き", reading: "ki/ки", mnemonic: "Киса 21 (2-き, 1-さ)" },
+    { char: "く", reading: "ku/ку", mnemonic: "Кулюв" },
+    { char: "け", reading: "ke/кэ", mnemonic: "Кепка" },
+    { char: "こ", reading: "ko/ко", mnemonic: "Косорот" },
+
+    { char: "さ", reading: "sa/са", mnemonic: "Саки 12 (1-さ, 2-き)" },
+    { char: "し", reading: "shi/си", mnemonic: "Шило" },
+    { char: "す", reading: "su/су", mnemonic: "Сушка" },
+    { char: "せ", reading: "se/сэ", mnemonic: "Сетка с веревкой" },
+    { char: "そ", reading: "so/со", mnemonic: "Сооснование" },
+
+    { char: "た", reading: "ta/та", mnemonic: "Табурет с ножкой" },
+    { char: "ち", reading: "chi/ти", mnemonic: "Число пять (5)" },
+    { char: "つ", reading: "tsu/цу", mnemonic: "Цунами-волна" },
+    { char: "て", reading: "te/тэ", mnemonic: "Тетерев" },
+    { char: "と", reading: "to/то", mnemonic: "Топор томагавк" },
+
+    { char: "な", reading: "na/на", mnemonic: "Навес" },
+    { char: "に", reading: "ni/ни", mnemonic: "Нитка на иголке" },
+    { char: "ぬ", reading: "nu/ну", mnemonic: "Ну баранки гну" },
+    { char: "ね", reading: "ne/не", mnemonic: "Нектар в кружке" },
+    { char: "の", reading: "no/но", mnemonic: "Норка" },
+
+    { char: "は", reading: "ha/ха", mnemonic: "Ха (Ha)" },
+    { char: "ひ", reading: "hi/хи", mnemonic: "Химера (плавная дуга)" },
+    { char: "ふ", reading: "fu/фу", mnemonic: "Фуфырка" },
+    { char: "へ", reading: "he/хе", mnemonic: "Хелы (лёд, ледяной торос)" },
+    { char: "ほ", reading: "ho/хо", mnemonic: "Хо (Ho)" },
+
+    { char: "ま", reading: "ma/ма", mnemonic: "Мачта" },
+    { char: "み", reading: "mi/ми", mnemonic: "Мидия" },
+    { char: "む", reading: "mu/му", mnemonic: "Му (морда коровы)" },
+    { char: "め", reading: "me/ме", mnemonic: "Медуза" },
+    { char: "も", reading: "mo/мо", mnemonic: "Мороженка с палочками" },
+
+    { char: "や", reading: "ya/я", mnemonic: "Ястреб" },
+    { char: "ゆ", reading: "yu/ю", mnemonic: "Юла" },
+    { char: "よ", reading: "yo/ё", mnemonic: "Йогурт" },
+
+    { char: "ら", reading: "ra/ра", mnemonic: "Раф (кофе)" },
+    { char: "り", reading: "ri/ри", mnemonic: "Рисинка" },
+    { char: "る", reading: "ru/ру", mnemonic: "Рулетка" },
+    { char: "れ", reading: "re/ре", mnemonic: "Рельс" },
+    { char: "ろ", reading: "ro/ро", mnemonic: "Ром (бутылка)" },
+
+    { char: "わ", reading: "wa/ва", mnemonic: "Ваза с ручкой" },
+    { char: "を", reading: "wo/во", mnemonic: "Вок" },
+    { char: "ん", reading: "n/н", mnemonic: 'Наклоненная "и"' },
+
+    { char: "が", reading: "ga/га", mnemonic: "Гарпун с гвоздём" },
+    { char: "ぎ", reading: "gi/ги", mnemonic: "Гитара" },
+    { char: "ぐ", reading: "gu/гу", mnemonic: "Гусеница с гвоздиками" },
+    { char: "げ", reading: "ge/гэ", mnemonic: "Герб" },
+    { char: "ご", reading: "go/го", mnemonic: "Гонг" },
+
+    { char: "ざ", reading: "za/дза", mnemonic: "дЗаклёпки" },
+    { char: "じ", reading: "ji/дзи", mnemonic: "дЖираф" },
+    { char: "ず", reading: "zu/дзу", mnemonic: "дЗубастая змея" },
+    { char: "ぜ", reading: "ze/дзэ", mnemonic: "дЗуркало" },
+    { char: "ぞ", reading: "zo/дзо", mnemonic: "дЗонт" },
+
+    { char: "だ", reading: "da/да", mnemonic: "Дамба" },
+    { char: "ぢ", reading: "ji/дзи", mnemonic: "Джинсы" },
+    { char: "づ", reading: "zu/дзу", mnemonic: "дЗуб" },
+    { char: "で", reading: "de/дэ", mnemonic: "Дерево с ветками" },
+    { char: "ど", reading: "do/до", mnemonic: "Домкрат" },
+
+    { char: "ば", reading: "ba/ба", mnemonic: "Барабан с палочкой" },
+    { char: "び", reading: "bi/би", mnemonic: "Бинокль" },
+    { char: "ぶ", reading: "bu/бу", mnemonic: "Бухер" },
+    { char: "べ", reading: "be/бэ", mnemonic: "Бейдж" },
+    { char: "ぼ", reading: "bo/бо", mnemonic: "Бочка" },
+
+    { char: "ぱ", reading: "pa/па", mnemonic: "Парус на ветру" },
+    { char: "ぴ", reading: "pi/пи", mnemonic: "Пикули" },
+    { char: "ぷ", reading: "pu/пу", mnemonic: "Пузырёк" },
+    { char: "ぺ", reading: "pe/пэ", mnemonic: "Перо" },
+    { char: "ぽ", reading: "po/по", mnemonic: "Помпон" },
+  ],
+
+  katakana: [
+    { char: "ア", reading: "a/а", mnemonic: "Антенна" },
+    { char: "イ", reading: "i/и", mnemonic: "Игла" },
+    { char: "ウ", reading: "u/у", mnemonic: "Утёс" },
+    { char: "エ", reading: "e/э", mnemonic: "Этажи" },
+    { char: "オ", reading: "o/о", mnemonic: "Орла клюв" },
+
+    { char: "カ", reading: "ka/ка", mnemonic: "Карниз" },
+    { char: "キ", reading: "ki/ки", mnemonic: "Киоск с двумя полками" },
+    { char: "ク", reading: "ku/ку", mnemonic: "Кулёк" },
+    { char: "ケ", reading: "ke/кэ", mnemonic: "Кегля" },
+    { char: "コ", reading: "ko/ко", mnemonic: "Коробка" },
+
+    { char: "サ", reading: "sa/са", mnemonic: "Сабля" },
+    { char: "シ", reading: "shi/си", mnemonic: "Широкая улыбка" },
+    { char: "ス", reading: "su/су", mnemonic: "Стремя всадника" },
+    { char: "セ", reading: "se/сэ", mnemonic: "Сектант" },
+    { char: "ソ", reading: "so/со", mnemonic: "Сосулька" },
+
+    { char: "タ", reading: "ta/та", mnemonic: "Табурет угловатый" },
+    { char: "チ", reading: "chi/ти", mnemonic: "Чип" },
+    { char: "ツ", reading: "tsu/цу", mnemonic: "Цунами" },
+    { char: "テ", reading: "te/тэ", mnemonic: "Телескоп" },
+    { char: "ト", reading: "to/то", mnemonic: "Тотем" },
+
+    { char: "ナ", reading: "na/на", mnemonic: "Навесная балка" },
+    { char: "ニ", reading: "ni/ни", mnemonic: "Нитки" },
+    { char: "ヌ", reading: "nu/ну", mnemonic: "Нуга" },
+    { char: "ネ", reading: "ne/не", mnemonic: "Невероятно сложная цепочка" },
+    { char: "ノ", reading: "no/но", mnemonic: "Нож" },
+
+    { char: "ハ", reading: "ha/ха", mnemonic: "Хата" },
+    { char: "ヒ", reading: "hi/хи", mnemonic: "Химик" },
+    { char: "フ", reading: "fu/фу", mnemonic: "Футляр открытый" },
+    { char: "ヘ", reading: "he/хе", mnemonic: "Холм" },
+    { char: "ホ", reading: "ho/хо", mnemonic: "Хобот" },
+
+    { char: "マ", reading: "ma/ма", mnemonic: "Мачта корабельная" },
+    { char: "ミ", reading: "mi/ми", mnemonic: "Мигалки огни" },
+    { char: "ム", reading: "mu/му", mnemonic: "Муравейник" },
+    { char: "メ", reading: "me/ме", mnemonic: "Метка крестиком" },
+    { char: "モ", reading: "mo/мо", mnemonic: "Мост подвесной" },
+
+    { char: "ヤ", reading: "ya/я", mnemonic: "Ятаган" },
+    { char: "ユ", reading: "yu/ю", mnemonic: "Юла" },
+    { char: "ヨ", reading: "yo/ё", mnemonic: "Ёршик для мытья»" },
+
+    { char: "ラ", reading: "ra/ра", mnemonic: "Ракета стартует" },
+    { char: "リ", reading: "ri/ри", mnemonic: "Рисовые всходы" },
+    { char: "ル", reading: "ru/ру", mnemonic: "Рубанок строгает" },
+    { char: "レ", reading: "re/ре", mnemonic: "Рейка наклонная" },
+    { char: "ロ", reading: "ro/ро", mnemonic: "Ров с водой" },
+
+    { char: "ワ", reading: "wa/ва", mnemonic: "Ваза треугольная" },
+    { char: "ヲ", reading: "wo/во", mnemonic: "Волжские волны" },
+    { char: "ン", reading: "n/н", mnemonic: "Носик загнутый" },
+
+    { char: "ガ", reading: "ga/га", mnemonic: "Галоши" },
+    { char: "ギ", reading: "gi/ги", mnemonic: "Гильза стрелянная" },
+    { char: "グ", reading: "gu/гу", mnemonic: "Гудок паравоза" },
+    { char: "ゲ", reading: "ge/гэ", mnemonic: "Герб рыцарский" },
+    { char: "ゴ", reading: "go/го", mnemonic: "Горшок перевёрнутый" },
+
+    { char: "ザ", reading: "za/дза", mnemonic: "Зарница" },
+    { char: "ジ", reading: "ji/дзи", mnemonic: "Джина лицо" },
+    { char: "ズ", reading: "zu/дзу", mnemonic: "дЗуб мудрости" },
+    { char: "ゼ", reading: "ze/дзэ", mnemonic: "дЗебры морда" },
+    { char: "ゾ", reading: "zo/дзо", mnemonic: "дЗонт" },
+
+    { char: "ダ", reading: "da/да", mnemonic: "Дартс" },
+    { char: "ヂ", reading: "ji/дзи", mnemonic: "Дипломная лента" },
+    { char: "ヅ", reading: "zu/дзу", mnemonic: "Дуэль палка" },
+    { char: "デ", reading: "de/дэ", mnemonic: "Дерево могучее" },
+    { char: "ド", reading: "do/до", mnemonic: "Домен" },
+
+    { char: "バ", reading: "ba/ба", mnemonic: "Барабан" },
+    { char: "ビ", reading: "bi/би", mnemonic: "Бита с гвоздём" },
+    { char: "ブ", reading: "bu/бу", mnemonic: "Бук вековой" },
+    { char: "ベ", reading: "be/бэ", mnemonic: "Бегония" },
+    { char: "ボ", reading: "bo/бо", mnemonic: "Болт с гайкой" },
+
+    { char: "パ", reading: "pa/па", mnemonic: "Парус" },
+    { char: "ピ", reading: "pi/пи", mnemonic: "Пила столярная и сучок" },
+    { char: "プ", reading: "pu/пу", mnemonic: "Пульт" },
+    { char: "ペ", reading: "pe/пэ", mnemonic: "Пена на вершине" },
+    { char: "ポ", reading: "po/по", mnemonic: "Поляна с грибом" },
+  ],
 };
 
 const getAllCharacters = () => {
-    return [...MNEMOTAKANA_DATA.hiragana, ...MNEMOTAKANA_DATA.katakana];
+  return [...MNEMOTAKANA_DATA.hiragana, ...MNEMOTAKANA_DATA.katakana];
 };
 
 const shuffleArray = (array) => {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
 };
