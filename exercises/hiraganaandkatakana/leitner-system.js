@@ -30,7 +30,7 @@ class LeitnerSystem {
       this.progress[`hiragana-${index}`] = {
         id: `hiragana-${index}`,
         symbol: item.symbol,
-        reading: item.russian,
+        reading: item.reading,
         box: 0,
         lastReview: null,
         nextReview: Date.now(),
@@ -42,7 +42,7 @@ class LeitnerSystem {
       this.progress[`katakana-${index}`] = {
         id: `katakana-${index}`,
         symbol: item.katakana,
-        reading: item.russian,
+        reading: item.reading,
         box: 0,
         lastReview: null,
         nextReview: Date.now(),
