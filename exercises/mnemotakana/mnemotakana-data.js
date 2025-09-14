@@ -65,7 +65,7 @@ const MNEMOTAKANA_DATA = {
     { char: "ざ", reading: "za/дза", mnemonic: "дЗаклёпки" },
     { char: "じ", reading: "ji/дзи", mnemonic: "дЖираф" },
     { char: "ず", reading: "zu/дзу", mnemonic: "дЗубастая змея" },
-    { char: "ぜ", reading: "ze/дзэ", mnemonic: "дЗуркало" },
+    { char: "ぜ", reading: "ze/дзэ", mnemonic: "дЗеркало" },
     { char: "ぞ", reading: "zo/дзо", mnemonic: "дЗонт" },
 
     { char: "だ", reading: "da/да", mnemonic: "Дамба" },

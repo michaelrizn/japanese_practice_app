@@ -80,10 +80,6 @@ class LeitnerExerciseManager {
     const stats = this.leitner.getStats('mixed');
     const statsHtml = `
       <div class="stats-display">
-        <div class="stat-item">
-          <span class="stat-label">К изучению:</span>
-          <span class="stat-value">${stats.due}</span>
-        </div>
         <div class="boxes-stats">
           ${Object.entries(stats.boxes).map(([box, count]) => 
             `<div class="box-stat">
