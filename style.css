@@ -669,10 +669,6 @@ main {
 
 .control-panel {
   margin-top: clamp(1rem, 3vw, 2rem);
-  padding: clamp(1rem, 3vw, 1.5rem);
-  background-color: var(--element-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
   gap: clamp(1rem, 3vw, 1.5rem);
@@ -685,20 +681,14 @@ main {
 }
 
 .panel-section h3 {
-  margin: 0;
+  margin: 0 0 clamp(0.5rem, 1.5vw, 0.8rem) 0;
   color: var(--accent-color);
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: 600;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: clamp(0.3rem, 1vw, 0.5rem);
 }
 
 .exercise-controls {
   margin-bottom: clamp(1rem, 3vw, 2rem);
-  padding: clamp(0.5rem, 2vw, 1rem);
-  background-color: var(--element-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
 }
 
 .type-selector, .mode-selector, .box-controls, .action-controls {
@@ -738,11 +728,7 @@ main {
 }
 
 .stats-display {
-    margin-top: clamp(0.5rem, 1.5vw, 1rem);
-    padding: clamp(0.5rem, 1.5vw, 0.8rem);
-    background-color: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
+    margin-top: 0;
 }
 
 .stat-item {
@@ -762,20 +748,32 @@ main {
 }
 
 .boxes-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: clamp(0.3rem, 1vw, 0.5rem);
     margin-top: clamp(0.5rem, 1.5vw, 0.8rem);
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .box-stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: clamp(0.3rem, 1vw, 0.5rem);
-    background-color: var(--element-bg);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.8rem);
     border-radius: var(--border-radius);
-    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    cursor: pointer;
+    transition: all var(--transition-time);
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.2rem, 0.5vw, 0.3rem);
+}
+
+.box-stat:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--accent-color);
+    transform: translateY(-1px);
 }
 
 .box-name {
@@ -831,12 +829,16 @@ main {
     }
     
     .boxes-stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: clamp(0.5rem, 1.5vw, 0.8rem);
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: clamp(0.4rem, 1.2vw, 0.6rem);
+        justify-content: space-between;
     }
     
     .box-stat {
         padding: clamp(0.5rem, 1.5vw, 0.8rem);
+        min-width: clamp(70px, 18vw, 100px);
+        flex: 1 1 calc(20% - 0.5rem);
     }
     
     .stats-display {

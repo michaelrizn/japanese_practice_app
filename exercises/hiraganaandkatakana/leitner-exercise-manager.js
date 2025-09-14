@@ -79,21 +79,14 @@ class LeitnerExerciseManager {
   updateStats() {
     const stats = this.leitner.getStats('mixed');
     const statsHtml = `
-      <div class="stats-display">
-        <div class="boxes-stats">
-          ${Object.entries(stats.boxes).map(([box, count]) => 
-            `<div class="box-stat">
-              <span class="box-name">${this.leitner.boxes[box].name}:</span>
-              <span class="box-count">${count}</span>
-            </div>`
-          ).join('')}
-        </div>
-      </div>
+      ${Object.entries(stats.boxes).map(([box, count]) => 
+        `<div class="box-stat">${this.leitner.boxes[box].name}: ${count}</div>`
+      ).join('')}
     `;
     
     const statsContainer = document.getElementById('boxes-stats');
     if (statsContainer) {
-      statsContainer.innerHTML = statsHtml.replace('<div class="stats-display">', '').replace('</div>', '');
+      statsContainer.innerHTML = statsHtml;
     }
   }
 
