@@ -26,6 +26,13 @@ class LeitnerExerciseManager {
     const controlPanelHtml = `
       <div class="control-panel">
         <div class="panel-section">
+          <h3>Статистика</h3>
+          <div class="stats-display">
+            <div class="boxes-stats" id="boxes-stats"></div>
+          </div>
+        </div>
+        
+        <div class="panel-section">
           <h3>Управление коробками</h3>
           <div class="box-controls">
             <button class="box-btn" data-box="0">Новые</button>
@@ -33,13 +40,6 @@ class LeitnerExerciseManager {
             <button class="box-btn" data-box="2">3 дня</button>
             <button class="box-btn" data-box="3">1 неделя</button>
             <button class="box-btn" data-box="4">1 месяц</button>
-          </div>
-        </div>
-        
-        <div class="panel-section">
-          <h3>Статистика</h3>
-          <div class="stats-display">
-            <div class="boxes-stats" id="boxes-stats"></div>
           </div>
         </div>
         
