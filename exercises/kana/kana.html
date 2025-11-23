@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Kana Practice</title>
+<link rel="stylesheet" href="../../style.css">
+<script src="../../common.js" defer></script>
+<script src="../hiragana/hiragana.js" defer></script>
+<script src="../katakana/katakana.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="top-menu">
+  <div class="menu-left">
+    <a href="../../index.html" class="menu-link">← Main</a>
+  </div>
+  <div class="menu-center">
+    <span class="exercise-title">Kana</span>
+  </div>
+  <div class="menu-right">
+    <button id="font-decrease" class="menu-btn">A-</button>
+    <button id="font-increase" class="menu-btn">A+</button>
+  </div>
+</header>
+<main>
+  <div class="kana-section">
+    <h2 class="section-title">Hiragana → Ru/Eng</h2>
+    <div id="section-hira-to-re" class="char-grid"></div>
+  </div>
+  <div class="kana-section">
+    <h2 class="section-title">Katakana → Ru/Eng</h2>
+    <div id="section-kata-to-re" class="char-grid"></div>
+  </div>
+  <div class="kana-section">
+    <h2 class="section-title">Ru/Eng → Hiragana</h2>
+    <div id="section-re-to-hira" class="char-grid"></div>
+  </div>
+  <div class="kana-section">
+    <h2 class="section-title">Ru/Eng → Katakana</h2>
+    <div id="section-re-to-kata" class="char-grid"></div>
+  </div>
+</main>
+</body>
+</html>

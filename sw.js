@@ -30,6 +30,8 @@ const urlsToCache = [
   './exercises/transliteration/transliteration.js',
   './exercises/transliteration/data/kanji_n5.js',
   './exercises/transliteration/data/kanji_n4.js',
+  './exercises/kana/kana.html',
+  './exercises/kana/app.js',
   './icons/icon-192.svg',
   './icons/icon-512.svg'
 ];
